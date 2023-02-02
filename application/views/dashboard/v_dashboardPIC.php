@@ -15,7 +15,7 @@
                         <tr align="center">
                             <th scope="col">No</th>
                             <th scope="col">Nomor Registrasi</th>
-                            <th scope="col">Tanggal Pengajuan</th>
+                            <!-- <th scope="col">Tanggal Pengajuan</th> -->
                             <th scope="col">Nama Perusahaan</th>
                             <th scope="col">Alamat Perusahaan</th>
                             <th scope="col">Tanggal Mulai Bekerja</th>
@@ -55,7 +55,7 @@
                             <tr align="center">
                                 <td><?= $loop++ ?></td>
                                 <td><?= $data->no_regis;?></td>
-                                <td><?= date('d-m-Y', strtotime($data->tanggal_pengajuan)) ?></td>
+                                <!-- <td><?= date('d-m-Y', strtotime($data->tanggal_pengajuan)) ?></td> -->
                                 <td><?= $data->nama_perusahaan;?></td>
                                 <td><?= $data->alamat_perusahaan;?></td>
                                 <td><?= date('d-m-Y', strtotime($data->wkt_mulai)) ?></td>
