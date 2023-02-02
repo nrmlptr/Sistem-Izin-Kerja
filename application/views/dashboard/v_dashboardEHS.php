@@ -82,12 +82,15 @@
                         <td><?= $data->standar_pengamanan?></td>
                         <td align="center"> <img src='<?php echo base_url('uploads/'.$data->gambar)?>' style="width: 150px; height: 150px;"></td>
                         <td><?= $data->status?></td>
-                        <td><?php if($data->status == 'checked'):?>
+                        <td><?php if($data->status == 'checked'){?>
                           <a href="<?php echo base_url('Dashboard/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-warning">
                               <span></span>Confirm
                           </a>
-                          <?php endif;?>
+                          <?php }elseif($data->status =='approved'){ ?>
+                          <span style="color: red;">Sudah Disetujui</span>
                         </td>
+                          <?php }else{ ?>
+                          <?php }?>
                         <td align="center">
                           <a href="<?php echo base_url('Dashboard/cekDetail/'.$data->id_subcont);?>" class="btn btn-info"><i class="far fa-eye"></i></a>
                           <!-- <a href="<?php echo base_url('Dashboard/perbaruiData/'.$data->id_subcont);?>" class="btn btn-warning"><i class="far fa-edit"></i></a> -->
