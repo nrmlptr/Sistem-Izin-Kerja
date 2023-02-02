@@ -115,9 +115,9 @@
 			// //proses upload
 			$config['upload_path']          = './uploads/';
 			$config['allowed_types']        = 'gif|jpg|png';
-			$config['max_size']             = 1000;
-			$config['max_width']            = 1024;
-			$config['max_height']           = 768;
+			$config['max_size']             = 2048;
+			$config['max_width']            = 1600;
+			$config['max_height']           = 1600;
 
 			$this->load->library('upload', $config);
 
