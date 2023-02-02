@@ -56,7 +56,7 @@
                                             </a> -->
                                             <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
                                             <hr>
-                                            <h6 class="text-center">Untuk Calon Pekerja Subcont, Klik Tombol di Bawah untuk Mengisi Form</h6>
+                                            <h6 class="text-center">Subcont, <b>Klik Tombol di Bawah ini</b> untuk Mengisi Form</h6>
                                             <a href="<?php echo base_url('Home/form_IKSJSA');?>" class="btn btn-google btn-user btn-block">
                                                 <i></i>Izin Kerja Subcont
                                             </a>
