@@ -39,7 +39,7 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome to Your Dashboard!</h1>
+                                            <h1 class="h4 mb-4" style="color: black;">Welcome to Your Dashboard!</h1>
                                         </div>
                                         <form class="user" action="<?php echo base_url('Login/verifyLogin');?>" method="POST">
                                             <div class="form-group">
@@ -56,7 +56,7 @@
                                             </a> -->
                                             <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
                                             <hr>
-                                            <h6 class="text-center">Subcont, <b>Klik Tombol di Bawah ini</b> untuk Mengisi Form</h6>
+                                            <h6 class="text-center" style="color: black;">Subcont, <b>Klik Tombol di Bawah ini</b> untuk Mengisi Form</h6>
                                             <a href="<?php echo base_url('Home/form_IKSJSA');?>" class="btn btn-google btn-user btn-block">
                                                 <i></i>Izin Kerja Subcont
                                             </a>

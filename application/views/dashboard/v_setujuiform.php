@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="card card-primary col-xl-8">
         <div class="card-header">
-            <h3 class="card-title">Konfirmasi Data</h3>
+            <h3 class="card-title" style="color: black;">Konfirmasi Data Izin Kerja</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -11,12 +11,11 @@
                     // var_dump($sbc[0]->id_subcont);die;
                 ?>     
                 <div class="form-group">
-                    <label for="setujuiForm">Konfirmasi Izin Kerja</label>
                     <div class="input-group">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="status" name="status">
                             <input type="hidden" name="id_subcont" value="<?php echo $sbc[0]->id_subcont?>">
-                            <label class="form-check-label" for="status"></label>
+                            <label class="form-check-label" for="status" style="color: black;">Setujui Izin Kerja Subcont</label>
                         </div>    
                     </div>
                 </div>
@@ -29,7 +28,7 @@
                 <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 <button type="submit" id="btn" class="form-control btn btn-secondary d-none">Simpan</button>
                 <button type="button" id="btnAlert" class="form-control btn btn-secondary">Simpan</button>
-                <button class="form-control btn btn-danger mt-4"><a href="<?php echo base_url('Dashboard/konfirm_gambar');?>" style="color: white;">Cancel</a></button>
+                <button class="form-control btn btn-danger mt-4"><a href="<?php echo base_url('Dashboard/konfirm_form');?>" style="color: white;">Cancel</a></button>
             </div>
             <!-- <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>

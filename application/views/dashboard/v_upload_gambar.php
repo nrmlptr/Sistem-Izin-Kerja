@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="card card-primary col-xl-8">
         <div class="card-header">
-            <h3>Konfirmasi Gambar</h3>
+            <h3 style="color: black;">Konfirmasi Gambar</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -11,11 +11,11 @@
                 // var_dump($sbc[0]->id_subcont);die;
             ?>
             <div class="form-group">
-                <label for="inputGambar">Input File Konfirmasi</label>
+                <label for="inputGambar" style="color: black;">Upload Konfirmasi Gambar</label>
                 <div class="input-group col-sm-8">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input col-sm-15" id="inputGambar" name="gambar">
-                        <input type="hidden" name="id_subcont" value="<?php echo $sbc[0]->id_subcont?>">
+                        <input type="file" class="custom-file-input col-sm-15" id="inputGambar" name="gambar[]" multiple>
+                        <input type="hidden" name="subcont_id" value="<?php echo $sbc[0]->id_subcont?>">
                         <label class="custom-file-label" for="inputGambar">Choose file</label>
                     </div>
                 </div>

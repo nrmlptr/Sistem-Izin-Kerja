@@ -28,50 +28,50 @@
         <div class="row">
             <div class="card my-5" style="width: 600rem;">
                 <div class="card-header">
-                    <h3 class="card-title">FORM VALIDASI IKS</h3>
+                    <h3 class="card-title" style="color: black;">FORM VALIDASI IKS</h3>
                 </div>
                 <form action="<?php echo base_url('Dashboard/proses_simpan_validasi');?>" method="POST">
                     <input type="hidden" name="id_subcont" value="<?php echo $sbc[0]->id_subcont?>">
                     <div class="form-group row mt-3">
-                        <label for="inputKP" class="col-sm-2 col-form-label">Kategori Pekerjaan</label>
+                        <label style="color: black;"for="inputKP" class="col-sm-2 col-form-label" style="color: black;">Kategori Pekerjaan</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" for="kategori_pekerjaan" id="kategori_pekerjaan" name="kategori_pekerjaan" value="<?php echo $sbc[0]->kategori_pekerjaan?>" readonly>
                         </div>
                     </div>
 
                     <hr>
-                    <h4>Silahkan Validasi Kembali Kategori Pekerjaan Sesuai Dengan Data yang Tertera di Atas</h4>
+                    <h4 style="color: black;">Silahkan Validasi Kembali Kategori Pekerjaan Sesuai Dengan Data yang Tertera di Atas</h4>
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="inputKategoriP" class="col-sm-2 col-form-label">Kategori Pekerjaan</label>
+                            <label style="color: black;"for="inputKategoriP" class="col-sm-2 col-form-label" style="color: black;">Kategori Pekerjaan</label>
                             <div class="form-group clearfix">
                                 <div class="form-check">
                                     <input class="form-check-input detail" type="checkbox" id="defaultCheck24" name="kategori_pekerjaan[0]" value="umum">
-                                    <label class="form-check-label" for="defaultCheck24">
+                                    <label style="color: black;"style="color: black;"class="form-check-label" for="defaultCheck24">
                                         Umum
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input detail" type="checkbox"  id="defaultCheck25" name="kategori_pekerjaan[1]" value="libatkan panas">
-                                    <label class="form-check-label" for="defaultCheck25">
+                                    <label style="color: black;"class="form-check-label" for="defaultCheck25">
                                         Melibatkan Panas
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input detail" type="checkbox"  id="defaultCheck26" name="kategori_pekerjaan[2]" value="libatkan ruang terbatas">
-                                    <label>
+                                    <label style="color: black;" class="form-check-label" for="defaultCheck26">
                                         Melibatkan Ruang Terbatas
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input detail" type="checkbox"  id="defaultCheck27" name="kategori_pekerjaan[3]" value="libatkan listrik tegangan tinggi">
-                                    <label class="form-check-label" for="defaultCheck27">
+                                    <label style="color: black;"class="form-check-label" for="defaultCheck27">
                                         Melibatkan Listrik Tegangan Menengah Tinggi
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input detail" type="checkbox" id="defaultCheck28" name="kategori_pekerjaan[4]" value="libatkan ketinggian">
-                                    <label class="form-check-label" for="defaultCheck28">
+                                    <label style="color: black;"class="form-check-label" for="defaultCheck28">
                                         Melibatkan Ketinggian
                                     </label>
                                 </div>
@@ -88,29 +88,29 @@
                                         <div id="form-input">
                                             <div class="row mb-3 form-group">
                                                 <div class="col-sm-15">
-                                                    <h3 class="box-title">SYARAT WAJIB</h3>
+                                                    <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
                                                     <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Wajib tersedia APAR" id="conditional-1">
-                                                        <label class="form-check-label" for="conditional-1">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-1">
                                                             Wajib tersedia APAR
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Wajib proteksi area kerja" id="conditional-2">
-                                                        <label class="form-check-label" for="conditional-2">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-2">
                                                             Wajib dipasang pembatas (safety line)/ Cover area kerja 
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Bebas Area bahan mudah terbakar" id="conditional-3">
-                                                        <label class="form-check-label" for="conditional-3">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-3">
                                                             Area bebas dari cairan, debu, kain, B3 yang mudah terbakar
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Lindungi dengan TERPAL" id="conditional-4">
-                                                        <label class="form-check-label" for="conditional-4">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-4">
                                                             Singkirkan benda yang mudah terbakar / lindungi dengan TERPAL 
                                                         </label>
                                                     </div>
@@ -128,23 +128,23 @@
                                         <div id="form-input">
                                             <div class="row mb-3 form-group">
                                                 <div class="col-sm-13">
-                                                    <h3 class="box-title">SYARAT WAJIB</h3>
+                                                    <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
                                                     <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Min 2 Pekerja" id="conditional-5">
-                                                        <label class="form-check-label" for="conditional-5">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-5">
                                                             Minimal melibatkan 2 orang pekerja
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Wajib pastikan oksigen tersediaa" id="conditional-6">
-                                                        <label class="form-check-label" for="conditional-6">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-6">
                                                             Wajib memastikan ketersediaan oksigen
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="atur waktu maksimal kerja" id="conditional-7">
-                                                        <label class="form-check-label" for="conditional-7">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-7">
                                                             Lakukan pengaturan waktu kerja maksimal di area terbatas
                                                         </label>
                                                     </div>
@@ -162,23 +162,23 @@
                                         <div id="form-input">
                                             <div class="row mb-3 form-group">
                                                 <div class="col-sm-10">
-                                                    <h3 class="box-title">SYARAT WAJIB</h3>
+                                                    <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
                                                     <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Min 2 Pekerja" id="conditional-8">
-                                                        <label class="form-check-label" for="conditional-8">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-8">
                                                             Minimal melibatkan 2 orang pekerja
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="cek scaffolding/tangga" id="conditional-9">
-                                                        <label class="form-check-label" for="conditional-9">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-9">
                                                             Lakukan pengecekan alat kerja : scaffolding/ tangga.
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="cek body harness dan helm" id="conditional-10">
-                                                        <label class="form-check-label" for="conditional-10">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-10">
                                                             Lakukan pengecekan body harness dan helm 
                                                         </label>
                                                     </div>
@@ -196,35 +196,35 @@
                                         <div id="form-input">
                                             <div class="row mb-3 form-group">
                                                 <div class="col-sm-10">
-                                                    <h3 class="box-title">SYARAT WAJIB</h3>
+                                                    <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
                                                     <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Min 2 Pekerja" id="conditional-11">
-                                                        <label class="form-check-label" for="conditional-11">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-11">
                                                             Minimal melibatkan 2 orang pekerja.
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="PIC memiliki sertifikat Teknisi K3 Listrik" id="conditional-12">
-                                                        <label class="form-check-label" for="conditional-12">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-12">
                                                             PIC harus mempunyai sertifikat Teknisi K3 Listrik.
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Area memiliki penerangan yang cukup" id="conditional-13">
-                                                        <label class="form-check-label" for="conditional-13">
-                                                            Area kerja harus mempunya penerangan yang cukup.
+                                                        <label style="color: black;"class="form-check-label" for="conditional-13">
+                                                            Area kerja harus mempunyai penerangan yang cukup.
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Area bebas genangan air" id="conditional-14">
-                                                        <label class="form-check-label" for="conditional-14">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-14">
                                                             Area kerja harus bebas genangan air.
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="validasi[]" value="Lengkap dengan LOTO sesuai Standar" id="conditional-15">
-                                                        <label class="form-check-label" for="conditional-15">
+                                                        <label style="color: black;"class="form-check-label" for="conditional-15">
                                                             Pastikan dilengkapi LOTO sesuai standar.
                                                         </label>
                                                     </div>
