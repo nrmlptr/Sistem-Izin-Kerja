@@ -18,7 +18,15 @@
             return $query->result();
         }
 
-        
+        //metode dibuat untuk ambil gambar yg ada ditabel gambar berdasarkan id subcont yg tercantum
+        public function getGambar($subcont_id){
+            $this->db->select('judul');
+            $this->db->from('gambar');
+            $this->db->where('subcont_id', $subcont_id);
+            $query = $this->db->get();
+            return $query->result();
+        }
+ 
         //================================================================================================================================================================
         //buat metode baru untuk query mengisi data validasi oleh orang kedua (PIC)
         public function simpan_data_validasi($postData){
@@ -40,26 +48,19 @@
                 redirect('Dashboard/prosesvalidasiData');
             }
         }
-
+        //================================================================================================================================================================
+        //insert gambar ke database tabel gambar 
+        function proses_uploadgambar($data) {
+            $this->db->insert('gambar', $data);
+        }
 
         //================================================================================================================================================================
-        //metode fungsi untuk memproses gambar yg akan di upload dan mengubah status dari draft, menjadi checked
-        public function proses_uploadgambar($data){
-            $data = array(
-                'gambar' => $data['gambar'],
-                'status' => 'checked',
-                'id_subcont' => $data['id_subcont']
-            );
+        //metode untuk ubah status dari draft jadi checked ketika gambar diupload ketabel gambar
+        function updateChecked($id, $data) {
+            $this->db->where('id_subcont', $id);
+            $this->db->update('iks', $data);
 
-            $this->db->where('id_subcont', $data['id_subcont']);
-            $run = $this->db->update('iks', $data);
-
-            if($run){
-                redirect('Dashboard/konfirm_gambar');
-            }else{
-                echo "Gagal Upload Gambar";
-                redirect('Dashboard/proseskonfirmGambar');
-            }
+            return $this->db->affected_rows();
         }
 
         //================================================================================================================================================================
@@ -82,63 +83,32 @@
             }
         }
 
-        // ================================================================================================================================================================
-        //metode yang dibuat untuk mengambil data dari tabel jsa pada db secara keseluruhan
-        //jangan lupa join karena diambil dari beberpa tabel
-        // public function get_jsa(){
-        //     $this->db->select('jsa.*, jsa.aktivitas_pekerjaan as aktivitas, subcont.no_regis,subcont.tanggal_pengajuan,subcont.nama_perusahaan,subcont.alamat_perusahaan,subcont.wkt_mulai,subcont.wkt_selesai,subcont.direktur_koordinat,subcont.pic_cbi,subcont.jenis_pekerjaan');
-        //     $this->db->from('jsa');
-        //     $this->db->join('subcont','subcont.id_subcont = jsa.subcont_id');
-        //     return $this->db->get()->result_array();
-        // }
-        
-        // ================================================================================================================================================================
-        //buat metode query untuk mengambil data detail pada tabel subcont dan jsa
-        // public function getDetailIKS($id_subcont){
-        //     //mengambil data dari dokter yg skrg sedang aktif
-        //     $this->db->select('iks.*, iks.aktivitas_pekerjaan as aktivitas, subcont.no_regis,subcont.tanggal_pengajuan,subcont.nama_perusahaan,subcont.alamat_perusahaan,subcont.wkt_mulai,subcont.wkt_selesai,subcont.direktur_koordinat,subcont.pic_cbi,subcont.jenis_pekerjaan,subcont.lokasi_pekerjaan,subcont.nohp_subcont,subcont.sie_pic_cbi,subcont.nohp_cbi');
-        //     $this->db->from('jsa');
-        //     $this->db->join('subcont','subcont.id_subcont = jsa.subcont_id');
-        //     $this->db->where(['subcont.id_subcont' => $id_subcont]);
-        //     $jsa = $this->db->get()->row_array();
-    
-        //     $subcont = $this->db->get_where('subcont', ['id_subcont' => $id_subcont])->row_array();
-                
-        //     return ['subcont' => $subcont, 'jsa' => $jsa];
-        // }
-
-        //=================================================================================================================================
-        //buat metode query untuk mengambil data dari tabel subcont dan tabel jsa 
-        //jadi yang nantinya muncul di view itu data subcont yang ada foreign dengan jsa, jika tidak, maka tidak akan muncul.
-        // public function get_all_data(){
-        //     $this->db->select('jsa.*, jsa.aktivitas_pekerjaan as aktivitas, subcont.no_regis,subcont.tanggal_pengajuan,subcont.nama_perusahaan,subcont.alamat_perusahaan,subcont.wkt_mulai,subcont.wkt_selesai,subcont.lokasi_pekerjaan,subcont.direktur_koordinat,subcont.pic_subcont,subcont.nohp_subcont,subcont.jml_picsubcont,subcont.namamp_subcont,subcont.pic_cbi,subcont.sie_pic_cbi,subcont.nohp_cbi,subcont.peralatan,subcont.apd_dipakai,subcont.apd_tambahan,subcont.jenis_pekerjaan,subcont.kategori_pekerjaan,subcont.syarat_wajib,subcont.validasi,subcont.status');
-        //     $this->db->from('jsa');
-        //     $this->db->join('subcont','subcont.id_subcont = jsa.subcont_id');
-        //     return $this->db->get()->result_array();
-        // }
-
         //===================================================================================================================================
+        //metode query untuk apus iksjsa by id
         public function hapusDataById($id){
             $this->db->delete('iks', array('id_subcont' => $id));
             redirect('dashboard/konfirm_form');
         }
 
-        //membuat fungsi metode query untuk dapat data dari tabel jsa
-        // public function getJSA($id_subcont){
-        //     $query = $this->db->get_where('jsa', array('subcont_id' => $id_subcont));
-        //     return $query->result_array();
-        //     // $query = $this->db->get('jsa');
-        //     // return $query->result();  
-        // }
+        //================================================================================================================================================================
+        //buat metod baru untuk query untuk beri tanda data sudah dibriefing
+        public function proses_briefingform($data){
+            $data = array(
+                'require_ehs' => 'briefing',
+                'id_subcont' => $data['id_subcont']
+            );
 
-        // function TampilIKSJSA($id_subcont) 
-        // {
-        //     $this->db->order_by('subcont_id', 'ASC');
-        //     return $this->db->from('jsa')
-        //     ->join('subcont', 'subcont.id_subcont=jsa.subcont_id')
-        //     ->get()
-        //     ->result();
-        // }  
+            $this->db->where('id_subcont', $data['id_subcont']);
+            $run = $this->db->update('iks', $data);
+
+            // var_dump($data);die;
+            if($run){
+                redirect('Dashboard/konfirm_form');
+            }else{
+                echo "Gagal Menyetujui";
+                redirect('Dashboard/prosesBriefing');
+            }
+        }
 
 
 

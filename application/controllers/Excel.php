@@ -11,24 +11,24 @@
                 $filter = $_GET['filter']; // Ambil data filter yang dipilih user
                 if($filter == '1'){ // Jika filter nya 1 (per tanggal)
                     $tgl = $_GET['tanggal'];
-                    $label = 'Data Subcont Tanggal '.date('d-m-y', strtotime($tgl));
+                    $label = 'Data Subcont PT CBI - Tanggal '.date('d-m-y', strtotime($tgl));
                     $url_export = 'excel/export?filter=1&tanggal='.$tgl;
                     $iks = $this->M_Excel->view_by_date($tgl); // Panggil fungsi view_by_date yang ada di Model Excel
                 }else if($filter == '2'){ // Jika filter nya 2 (per bulan)
                     $bulan = $_GET['bulan'];
                     $tahun = $_GET['tahun'];
                     $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-                    $label = 'Data Subcont Bulan '.$nama_bulan[$bulan].' '.$tahun;
+                    $label = 'Data Subcont PT CBI - Bulan '.$nama_bulan[$bulan].' '.$tahun;
                     $url_export = 'excel/export?filter=2&bulan='.$bulan.'&tahun='.$tahun;
                     $iks = $this->M_Excel->view_by_month($bulan, $tahun); // Panggil fungsi view_by_month yang ada di Model Excel
                 }else{ // Jika filter nya 3 (per tahun)
                     $tahun = $_GET['tahun'];
-                    $label = 'Data Subcont Tahun '.$tahun;
+                    $label = 'Data Subcont PT CBI - Tahun '.$tahun;
                     $url_export = 'excel/export?filter=3&tahun='.$tahun;
                     $iks = $this->M_Excel->view_by_year($tahun); // Panggil fungsi view_by_year yang ada di Model Excel
                 }
             }else{ // Jika user tidak mengklik tombol tampilkan
-                $label = 'Semua Data Subcont';
+                $label = 'Semua Data Subcont PT CBI';
                 $url_export = 'excel/export';
                 $iks = $this->M_Excel->view_all(); // Panggil fungsi view_all yang ada di Model Excel
             }
@@ -81,25 +81,25 @@
                 $filter = $_GET['filter']; // Ambil data filter yang dipilih user
                 if($filter == '1'){ // Jika filter nya 1 (per tanggal)
                     $tgl = $_GET['tanggal'];
-                    $label = 'Data Subcont Tanggal '.date('d-m-y', strtotime($tgl));
+                    $label = 'Data Subcont PT CBI - Tanggal '.date('d-m-y', strtotime($tgl));
                     $iks = $this->M_Excel->view_by_date($tgl); // Panggil fungsi view_by_date yang ada di Model Excel
                 }else if($filter == '2'){ // Jika filter nya 2 (per bulan)
                     $bulan = $_GET['bulan'];
                     $tahun = $_GET['tahun'];
                     $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-                    $label = 'Data Subcont Bulan '.$nama_bulan[$bulan].' '.$tahun;
+                    $label = 'Data Subcont PT CBI - Bulan '.$nama_bulan[$bulan].' '.$tahun;
                     $iks = $this->M_Excel->view_by_month($bulan, $tahun); // Panggil fungsi view_by_month yang ada di Model Excel
                 }else{ // Jika filter nya 3 (per tahun)
                     $tahun = $_GET['tahun'];
-                    $label = 'Data Subcont Tahun '.$tahun;
+                    $label = 'Data Subcont PT CBI - Tahun '.$tahun;
                     $iks = $this->M_Excel->view_by_year($tahun); // Panggil fungsi view_by_year yang ada di Model Excel
                 }
             }else{ // Jika user tidak mengklik tombol tampilkan
-                $label = 'Semua Data Subcont';
+                $label = 'Semua Data Subcont PT CBI';
                 $iks = $this->M_Excel->view_all(); // Panggil fungsi view_all yang ada di Model Excel
             }
             $excel->setActiveSheetIndex(0);
-            $excel->getActiveSheet()->setCellValue('A1', "DATA IZIN KERJA SUBCONT"); // Set kolom A1 dengan tulisan "DATA IZIN KERJA SUBCONT"
+            $excel->getActiveSheet()->setCellValue('A1', "DATA IZIN KERJA SUBCONT - PT CBI"); // Set kolom A1 dengan tulisan "DATA IZIN KERJA SUBCONT"
             $excel->getActiveSheet()->mergeCells('A1:E1'); // Set Merge Cell pada kolom A1 sampai E1
             $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); // Set bold kolom A1
             $excel->getActiveSheet()->setCellValue('A2', $label); // Set kolom A2 sesuai dengan yang pada variabel $label
@@ -131,6 +131,7 @@
             $excel->getActiveSheet()->setCellValue('X4', "Standar Pengamanan"); // Set kolom C4 dengan tulisan "Syarat Wajib"
             $excel->getActiveSheet()->setCellValue('Y4', "Validasi"); // Set kolom B4 dengan tulisan "Validasi"
             $excel->getActiveSheet()->setCellValue('Z4', "Status"); // Set kolom C4 dengan tulisan "Status"
+            $excel->getActiveSheet()->setCellValue('AA4', "Require PIC EHS"); // Set kolom C4 dengan tulisan "Require EHS (WAJIB BRIEFING)"
             // Apply style header yang telah kita buat tadi ke masing-masing kolom header
             $excel->getActiveSheet()->getStyle('A4')->applyFromArray($style_col);
             $excel->getActiveSheet()->getStyle('B4')->applyFromArray($style_col);
@@ -158,6 +159,7 @@
             $excel->getActiveSheet()->getStyle('X4')->applyFromArray($style_col);
             $excel->getActiveSheet()->getStyle('Y4')->applyFromArray($style_col);
             $excel->getActiveSheet()->getStyle('Z4')->applyFromArray($style_col);
+            $excel->getActiveSheet()->getStyle('AA4')->applyFromArray($style_col);
             // Set height baris ke 1, 2, 3 dan 4
             $excel->getActiveSheet()->getRowDimension('1')->setRowHeight(20);
             $excel->getActiveSheet()->getRowDimension('2')->setRowHeight(20);
@@ -185,6 +187,7 @@
             $excel->getActiveSheet()->getRowDimension('24')->setRowHeight(20);
             $excel->getActiveSheet()->getRowDimension('25')->setRowHeight(20);
             $excel->getActiveSheet()->getRowDimension('26')->setRowHeight(20);
+            $excel->getActiveSheet()->getRowDimension('27')->setRowHeight(20);
             $no = 1; // Untuk penomoran tabel, di awal set dengan 1
             $numrow = 5; // Set baris pertama untuk isi tabel adalah baris ke 5
             foreach($iks as $data){ // Lakukan looping pada variabel subcont
@@ -216,6 +219,7 @@
                 $excel->getActiveSheet()->setCellValue('X'.$numrow, $data->standar_pengamanan);
                 $excel->getActiveSheet()->setCellValue('Y'.$numrow, $data->validasi);
                 $excel->getActiveSheet()->setCellValue('Z'.$numrow, $data->status);
+                $excel->getActiveSheet()->setCellValue('AA'.$numrow, $data->require_ehs);
                 // Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
                 $excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
                 $excel->getActiveSheet()->getStyle('B'.$numrow)->applyFromArray($style_row);
@@ -242,6 +246,7 @@
                 $excel->getActiveSheet()->getStyle('X'.$numrow)->applyFromArray($style_row);
                 $excel->getActiveSheet()->getStyle('Y'.$numrow)->applyFromArray($style_row);
                 $excel->getActiveSheet()->getStyle('Z'.$numrow)->applyFromArray($style_row);
+                $excel->getActiveSheet()->getStyle('AA'.$numrow)->applyFromArray($style_row);
                 $excel->getActiveSheet()->getRowDimension($numrow)->setRowHeight(20);
                 $no++; // Tambah 1 setiap kali looping
                 $numrow++; // Tambah 1 setiap kali looping
@@ -252,27 +257,28 @@
             $excel->getActiveSheet()->getColumnDimension('C')->setWidth(25); // Set width kolom C
             $excel->getActiveSheet()->getColumnDimension('D')->setWidth(20); // Set width kolom D
             $excel->getActiveSheet()->getColumnDimension('E')->setWidth(20); // Set width kolom E
-            $excel->getActiveSheet()->getColumnDimension('F')->setWidth(20); // Set width kolom E
-            $excel->getActiveSheet()->getColumnDimension('G')->setWidth(15); // Set width kolom A
-            $excel->getActiveSheet()->getColumnDimension('H')->setWidth(18); // Set width kolom B
-            $excel->getActiveSheet()->getColumnDimension('I')->setWidth(25); // Set width kolom C
-            $excel->getActiveSheet()->getColumnDimension('J')->setWidth(20); // Set width kolom D
-            $excel->getActiveSheet()->getColumnDimension('K')->setWidth(20); // Set width kolom E
-            $excel->getActiveSheet()->getColumnDimension('L')->setWidth(15); // Set width kolom A
-            $excel->getActiveSheet()->getColumnDimension('M')->setWidth(18); // Set width kolom B
-            $excel->getActiveSheet()->getColumnDimension('N')->setWidth(25); // Set width kolom C
-            $excel->getActiveSheet()->getColumnDimension('O')->setWidth(20); // Set width kolom D
-            $excel->getActiveSheet()->getColumnDimension('P')->setWidth(20); // Set width kolom E
-            $excel->getActiveSheet()->getColumnDimension('Q')->setWidth(15); // Set width kolom A
-            $excel->getActiveSheet()->getColumnDimension('R')->setWidth(18); // Set width kolom B
-            $excel->getActiveSheet()->getColumnDimension('S')->setWidth(25); // Set width kolom C
-            $excel->getActiveSheet()->getColumnDimension('T')->setWidth(20); // Set width kolom D
-            $excel->getActiveSheet()->getColumnDimension('U')->setWidth(20); // Set width kolom E
-            $excel->getActiveSheet()->getColumnDimension('V')->setWidth(20); // Set width kolom D
-            $excel->getActiveSheet()->getColumnDimension('w')->setWidth(25); // Set width kolom C
-            $excel->getActiveSheet()->getColumnDimension('x')->setWidth(20); // Set width kolom D
-            $excel->getActiveSheet()->getColumnDimension('y')->setWidth(20); // Set width kolom E
-            $excel->getActiveSheet()->getColumnDimension('z')->setWidth(20); // Set width kolom D
+            $excel->getActiveSheet()->getColumnDimension('F')->setWidth(20); // Set width kolom F
+            $excel->getActiveSheet()->getColumnDimension('G')->setWidth(15); // Set width kolom G
+            $excel->getActiveSheet()->getColumnDimension('H')->setWidth(18); // Set width kolom H
+            $excel->getActiveSheet()->getColumnDimension('I')->setWidth(25); // Set width kolom I
+            $excel->getActiveSheet()->getColumnDimension('J')->setWidth(20); // Set width kolom J
+            $excel->getActiveSheet()->getColumnDimension('K')->setWidth(20); // Set width kolom K
+            $excel->getActiveSheet()->getColumnDimension('L')->setWidth(15); // Set width kolom L
+            $excel->getActiveSheet()->getColumnDimension('M')->setWidth(18); // Set width kolom M
+            $excel->getActiveSheet()->getColumnDimension('N')->setWidth(25); // Set width kolom N
+            $excel->getActiveSheet()->getColumnDimension('O')->setWidth(20); // Set width kolom O
+            $excel->getActiveSheet()->getColumnDimension('P')->setWidth(20); // Set width kolom P
+            $excel->getActiveSheet()->getColumnDimension('Q')->setWidth(15); // Set width kolom Q
+            $excel->getActiveSheet()->getColumnDimension('R')->setWidth(18); // Set width kolom R
+            $excel->getActiveSheet()->getColumnDimension('S')->setWidth(25); // Set width kolom S
+            $excel->getActiveSheet()->getColumnDimension('T')->setWidth(20); // Set width kolom T
+            $excel->getActiveSheet()->getColumnDimension('U')->setWidth(20); // Set width kolom U
+            $excel->getActiveSheet()->getColumnDimension('V')->setWidth(20); // Set width kolom V
+            $excel->getActiveSheet()->getColumnDimension('W')->setWidth(25); // Set width kolom W
+            $excel->getActiveSheet()->getColumnDimension('X')->setWidth(20); // Set width kolom X
+            $excel->getActiveSheet()->getColumnDimension('Y')->setWidth(20); // Set width kolom Y
+            $excel->getActiveSheet()->getColumnDimension('Z')->setWidth(20); // Set width kolom Z
+            $excel->getActiveSheet()->getColumnDimension('AA')->setWidth(20); // Set width kolom AA
             // Set orientasi kertas jadi LANDSCAPE
             $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
             // Set judul file excel nya
@@ -280,7 +286,7 @@
             $excel->getActiveSheet();
             // Proses file excel
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment; filename="Data Subcont.xls"'); // Set nama file excel nya
+            header('Content-Disposition: attachment; filename="Data Subcont PT CBI.xls"'); // Set nama file excel nya
             header('Cache-Control: max-age=0');
             $write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
             $write->save('php://output');

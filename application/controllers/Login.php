@@ -3,6 +3,7 @@
 
 	class Login extends CI_Controller {
 
+		//metode untuk pertama masuk sistem tampilkan login halaman
 		public function index()
 		{
 			$this->load->view('auth/v_login.php');
@@ -31,10 +32,8 @@
 				);
 
 				$this->session->set_userdata($datauser);  //buat session untuk hak izin akses
-				// redirect('Dashboard/table');
 
-
-				//buat 
+				//buat kondisi jika berhasil login akan pergi kemana
 				if($getUser->akses == 1){
 				    redirect('Dashboard/konfirm_gambar');
 				}elseif($getUser->akses == 2){
@@ -46,6 +45,7 @@
 		}
 
 		//=============================================================================================================================================================================================
+		//buat metode untuk logout dari sistem
 		public function logout(){
 			$this->session->sess_destroy();
 			redirect('Login/index');
