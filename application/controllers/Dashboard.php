@@ -17,7 +17,7 @@
 			$this->load->view('template/footer');
 		}
 
-		// =================================================================================================
+		// ============================================================================================================================================================
 		//buat metode yng digunakan untuk membuka form validasi data ketika button di tekan
 		public function prosesvalidasiData(){
 			// -> tes apakah button berfungsi 
@@ -32,7 +32,7 @@
 			$this->load->view('template/footer');
 		}
 
-		//buat metode yg digunakan untuk simpan validasi yang diinput oleh PIC, dengan mengudapte tabel subcont dan mengisi field validasi
+		//buat metode yg digunakan untuk simpan validasi yang diinput oleh PIC, dengan mengupdate tabel iks dan mengisi field validasi
 		public function proses_simpan_validasi(){
 			
 			$this->load->model('M_subcont');
@@ -48,20 +48,6 @@
 			}
 
 			// var_dump($validasiData);die;
-
-			//Kondisi Jika Kategori Pekerjaan yang dipilih memiliki syarat tambahan wajib
-			// if($this->input->post('kategori_pekerjaan') == 'libatkan panas'){
-			// 	$syaratWajib = implode(', ', $postData['syarat_wajib']);
-			// 	$postData['syarat_wajib'] = $syaratWajib;
-			// }elseif($this->input->post('kategori_pekerjaan')  == 'libatkan ruang terbatas' ){
-			// 	$syaratWajib = implode(', ', $postData['syarat_wajib']);
-			// 	$postData['syarat_wajib'] = $syaratWajib;
-			// }elseif($this->input->post('kategori_pekerjaan') == 'libatkan ketinggian'){
-			// 	$syaratWajib = implode(', ', $postData['syarat_wajib']);
-			// 	$postData['syarat_wajib'] = $syaratWajib;
-			// }else{
-			// 	$postData['syarat_wajib'] = '';
-			// }
 
 			//Buat variabel postdata dengan array untuk lokasi_pekerjaan agar bisa save ke db 
 			$postData['kategori_pekerjaan'] = implode(', ', $_POST['kategori_pekerjaan']);
@@ -82,7 +68,7 @@
 			// ===========================================================================================
 		}
 
-
+		// ============================================================================================================================================================
 		//buat fungsi yang akan digunakan untuk menampilkan dashboard untuk orang ke2
 		public function konfirm_gambar(){
 			$this->load->model('M_subcont');
@@ -107,47 +93,70 @@
 			$this->load->view('dashboard/v_upload_gambar', $data);
 			$this->load->view('template/footer');
 		}
-
-		//buat metod yg digunkan untuk proses upload gambar
+		
+		//metode untuk proses upload gambar ke sistem
 		public function proses_uploadgambar(){
-			// var_dump($_FILES);die;
-
-			// //proses upload
-			$config['upload_path']          = './uploads/';
-			$config['allowed_types']        = 'gif|jpg|png';
-			$config['max_size']             = 2048;
-			$config['max_width']            = 1600;
-			$config['max_height']           = 1600;
-
-			$this->load->library('upload', $config);
-
-			if ( ! $this->upload->do_upload('gambar'))
-			{
-				// var_dump("Gagal");die;
-				$error = array('error' => $this->upload->display_errors());
-
-				$this->load->view('upload_form', $error);
-					redirect('Dashboard/proseskonfirmGambar');
-			}
-			else
-			{
-				//var_dump("Berhasil");die;
-				$dataUpload = array('upload_data' => $this->upload->data());
-
-				$this->load->view('upload_success', $data);
-			}
-			//end upload
-
-			//var_dump ($this->input->post('id_subcont'));die;
-			$data['id_subcont'] = $this->input->post('id_subcont');
-			$data['gambar'] = $this->upload->data('file_name');
-			$data['checked']= $this->input->post('status');
-
+			// Panggil Model M_subcont
 			$this->load->model('M_subcont');
-			$this->M_subcont->proses_uploadgambar($data);
 
-			// var_dump($data);die;
+			// nerima data dari view
+			$uploadData['id_subcont'] = $this->input->post('subcont_id');
+			// $uploadData['checked']= $this->input->post('status');
+
+			// Hitung Jumlah File/Gambar yang dipilih
+			$jumlahData = count($_FILES['gambar']['name']);
+
+			// Lakukan Perulangan dengan maksimal ulang Jumlah File yang dipilih
+			for ($i=0; $i < $jumlahData ; $i++):
+
+				//Inisialisasi nama,type,dll
+				$_FILES['file']['name']     = $_FILES['gambar']['name'][$i];
+				$_FILES['file']['type']     = $_FILES['gambar']['type'][$i];
+				$_FILES['file']['tmp_name'] = $_FILES['gambar']['tmp_name'][$i];
+				$_FILES['file']['size']     = $_FILES['gambar']['size'][$i];
+
+				//Konfigurasi Upload
+				$config['upload_path']          = './uploads/'; //path folder
+				$config['allowed_types']        = 'gif|jpg|png|jpeg'; //type gambar yang dapat di upload
+
+				// Memanggil Library Upload dan Setting Konfigurasi
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+
+				if($this->upload->do_upload('file')){ // Jika Berhasil Upload
+
+					$fileData = $this->upload->data(); // Lakukan Upload Data
+	
+					// Membuat Variable untuk dimasukkan ke Database
+					$uploadData[$i]['judul'] = $fileData['file_name']; // ini udah ga perlu sebenarnya
+
+					// setiap upload data akan insert ke table
+					$data = [
+
+						'judul'			=> $fileData['file_name'],
+						'subcont_id'	=> $uploadData['id_subcont']
+					];
+
+					$this->M_subcont->proses_uploadgambar($data);
+				}
+			endfor; // Penutup For
+
+			// var_dump($uploadData);die;
+
+			$data2 = array(
+				'status' => 'checked'
+			);
+
+			$updateCheked = $this->M_subcont->updateChecked($uploadData['id_subcont'], $data2);
+
+			if($updateCheked > 0){
+				redirect('Dashboard/konfirm_gambar');
+			}else{ // Jika Tidak Berhasil Insert
+				redirect('Dashboard/proseskonfirmGambar');
+			}
 		}
+
+		// ============================================================================================================================================================
 
 		//buat fungsi yang akan digunakan untuk manggil view yg menampilkan data untuk orang ke 3 (EHS)
 		public function konfirm_form(){
@@ -161,7 +170,7 @@
 
 		}
 
-		//buat metod yg digunakan untuk menampilkan form ceklis yg akan disetujui oleh Dept EHs
+		//buat metod yg digunakan untuk menampilkan form ceklis yg akan disetujui oleh Dept EHS
 		public function prosesSetujui(){
 			// -> tes apakah button berfungsi // echo "Ini tempat proses setujui";
 			$this->load->view('template/header');
@@ -178,7 +187,7 @@
 		//buat metod yg berfungsi untuk memproses ceklis yg sudah disimpan oleh EHS
 		public function proses_setujuiForm(){
 
-			//  var_dump ($this->input->post('status'));die;
+			// var_dump ($this->input->post('status'));die;
 			$data['id_subcont'] = $this->input->post('id_subcont');
 			$data['approved'] = $this->input->post('status');
 
@@ -186,45 +195,8 @@
 			$this->M_subcont->proses_setujuiform($data);
 		}
 
-		// ==============================================================================================================================
-
-		//buat fungsi yang akan digunakan untuk menampilkan dashboard JSA untuk orang ke2
-		// public function dashboardJSA_PIC(){
-		// 	$this->load->model('M_subcont');
-		// 	$data['list_jsa'] = $this->M_subcont->get_jsa();
-		// 	// var_dump($data['list_jsa']);die;
-
-		// 	$this->load->view('template/header');
-		// 	$this->load->view('dashboard/v_dashboardJSA_PIC', $data);
-		// 	$this->load->view('template/footer');
-		// }
-
-		// //buat fungsi yang akan digunakan untuk menampilkan dashboard JSA untuk orang ke3
-		// public function dashboardJSA_EHS(){
-		// 	$this->load->model('M_subcont');
-		// 	$data['list_jsa'] = $this->M_subcont->get_jsa();
-		// 	// var_dump($data['list_jsa']);die;
-
-		// 	$this->load->view('template/header');
-		// 	$this->load->view('dashboard/v_dashboardJSA_EHS', $data);
-		// 	$this->load->view('template/footer');
-		// }
-
 		//================================================================================================================================
-
-		//buat fungsi metode untuk lihat detail data subcont beserta jsa
-		//function untuk menampilkan detail rekam medis pasien di menu rekam medis pasien role dokter
-		// public function cekDetail($id_subcont){
-		// 	//kirim ke view dalam bentuk array
-		// 	$data = $this->M_subcont->getDetailIKS($id_subcont);
-		// 	$this->data['subcont'] = $data['subcont'];
-		// 	$this->data['jsa'] = $data['jsa'];
-
-		// 	$this->load->view('template/header');
-		// 	$this->load->view('dashboard/v_detail', $this->data);
-		// 	$this->load->view('template/footer');
-		// }
-
+		//buat fungsi metode untuk lihat detail data iks beserta jsa
 		public function cekDetail(){
 			$this->load->view('template/header');
 
@@ -237,29 +209,7 @@
 			$this->load->view('template/footer');
 		}
 
-		// public function cetak_detail($id_subcont){
-		// 	//load library
-		// 	$this->load->library('dompdf_gen');
-
-		// 	$data = $this->M_subcont->getDetailIKS($id_subcont);
-		// 	$this->data['subcont'] = $data['subcont'];
-		// 	$this->data['jsa'] = $data['jsa'];
-
-		// 	$this->load->view('pdf/v_cetak_subcont', $this->data);
-
-		// 	$paper_size = 'A4';
-		// 	$orientation = 'potrait';
-
-		// 	//get output html
-		// 	$html = $this->output->get_output();
-		// 	$this->dompdf->set_paper($paper_size, $orientation);
-
-		// 	///convert to pdf
-		// 	$this->dompdf->load_html($html);
-		// 	$this->dompdf->render();
-		// 	$this->dompdf->stream("Detail_Data_Subcont.pdf");
-		// }//VERSI 1
-
+		//metode untuk cetak detail menjadi pdf sebagai tiket masuk subcont ke cbi
 		public function cetak_detail($id_subcont){
 			//load library
 			$this->load->library('dompdf_gen');
@@ -299,19 +249,7 @@
 
 		}
 
-		//buat fungsi metode untuk lihat detail data subcont beserta jsa
-		//function untuk menampilkan detail rekam medis pasien di menu rekam medis pasien role dokter
-		// public function cekSecurity($id_subcont){
-		// 	//kirim ke view dalam bentuk array
-		// 	$data = $this->M_subcont->getDetailIKS($id_subcont);
-		// 	$this->data['subcont'] = $data['subcont'];
-		// 	$this->data['jsa'] = $data['jsa'];
-
-		// 	$this->load->view('template/header');
-		// 	$this->load->view('dashboard/v_detail_sec', $this->data);
-		// 	$this->load->view('template/footer');
-		// }
-
+		//buat fungsi metode untuk lihat detail data iks beserta jsa pada role satpam
 		public function cekSecurity(){
 			$this->load->view('template/header');
 
@@ -324,8 +262,6 @@
 			$this->load->view('template/footer');
 		}
 
-
-
 		//================================================================================================================================
 		//buat metode untuk hapus data iks dengan id
 		public function hapusDataById(){
@@ -336,102 +272,31 @@
 
 
 		//=================================================================================================================================
-		//buat metode fungsi untuk perbarui data iks dan jsa
-		public function perbaruiData($id){
-			$id = $this->uri->segment(3);
-			$dataSubcont = $this->M_subcont->getSubcontById($id);
-			// var_dump($dataSubcont);die;
-
-
-			// $dataSubcont = $this->M_subcont->getSubcontById($id);
-			// $data['jsa'] = $this->M_subcont->getJSA($id);
-			// var_dump($data['jsa']);die;
-			// $dataLokasi = explode(', ', $dataSubcont['lokasi_pekerjaan']);
-			// var_dump($dataLokasi);die;
-			
-
-			foreach($dataSubcont as $row){
-				// $data['id_subcont'] = $row->id;
-				//buat variabel untuk memecah string menjadi array kembali untuk lokasi pekerjaan
-				$lokasi_pekerjaan = $row->lokasi_pekerjaan;
-				$dataLokasi = explode(', ', $lokasi_pekerjaan);
-
-				//buat variabel untuk memecah string menjadi array kembali untuk apd tambahan
-				$apd_tambahan = $row->apd_tambahan;
-				$dataAPDT = explode(', ', $apd_tambahan);
-
-				//buat variabel untuk memecah string menjadi array kembali untuk kategori pekerjaan
-				$kategori_pekerjaan = $row->kategori_pekerjaan;
-				$dataKP = explode(', ', $kategori_pekerjaan);
-
-				//buat variabel untuk syarat wajib di pecah menjadi array kembali
-				$syaratWajib = explode(', ', $row->syarat_wajib);
-
-				//buat variabel untuk memecah string menjadi array kembali untuk kategori pekerjaan
-				$aspek = $row->aspek;
-				$dataAspek = explode(', ', $aspek);
-				// var_dump($dataAspek);die;
-
-				//buat variabel untuk memecah string menjadi array kembali untuk kategori pekerjaan
-				$dampak = $row->dampak;
-				$dataDampak = explode(', ', $dampak);
-				// var_dump($dataDampak);die;
-
-				$dataAktivitas = explode(', ', $row->aktivitas_pekerjaan);
-
-				
-				
-				
-				$data['no_regis'] = $row->no_regis;  
-				$data['tanggal_pengajuan'] = $row->tanggal_pengajuan;  
-				$data['nama_perusahaan'] = $row->nama_perusahaan;  
-				$data['alamat_perusahaan'] = $row->alamat_perusahaan;  
-				$data['wkt_mulai'] = $row->wkt_mulai;  
-				$data['wkt_selesai'] = $row->wkt_selesai;  
-				$data['lokasi_pekerjaan'] = $dataLokasi;  
-				$data['direktur_koordinat'] = $row->direktur_koordinat;  
-				$data['pic_subcont'] = $row->pic_subcont;  
-				$data['nohp_subcont'] = $row->nohp_subcont;  
-				$data['jml_picsubcont'] = $row->jml_picsubcont;  
-				$data['namamp_subcont'] = $row->namamp_subcont;  
-				$data['pic_cbi'] = $row->pic_cbi; 
-				$data['sie_pic_cbi'] = $row->sie_pic_cbi;  
-				$data['nohp_cbi'] = $row->nohp_cbi;  
-				$data['peralatan'] = $row->peralatan;  
-				$data['apd_dipakai'] = $row->apd_dipakai;  
-				$data['apd_tambahan'] = $dataAPDT;  
-				$data['jenis_pekerjaan'] = $row->jenis_pekerjaan;
-				$data['kategori_pekerjaan'] = $dataKP;
-				$data['syarat_wajib'] = $syaratWajib;  
-				$data['aktivitas_pekerjaan'] = $dataAktivitas;
-				$data['aspek'] = $dataAspek;   
-				$data['dampak'] = $dataDampak;   
-			}
-
-			//lanjut step jsa
-
-			// $subcont_id = $this->M_subcont->update_IKSJSA('subcont',$data);
-
-			// $data['jsa'] = $this->M_subcont->getJSA($id);
-			// // var_dump($data['jsa']);die;
-
-			// foreach($data as $list){
-
-			// 	//buat variabel untuk memecah string menjadi array kembali
-			// 	$dataAktivitas = explode(', ', $list->aktivitas_pekerjaan);
-
-
-			// 	$data['aktivitas_pekerjaan'] = $dataAktivitas;
-
-			// }
-
-
-			
-
-			
+		//buat metod yg digunakan untuk menampilkan form ceklis sudah melakukan briefing oleh Dept EHS
+		public function prosesBriefing(){
+			// -> tes apakah button berfungsi // echo "Ini tempat proses setujui";
 			$this->load->view('template/header');
-			$this->load->view('dashboard/v_update', $data);
+
+			$id_subcont = $this->uri->segment(3);
+			$this->load->model("M_subcont");
+			$data['sbc']=$this->M_subcont->getSubcontById($id_subcont);
+
+			//var_dump($data['sbc']);die;
+			$this->load->view('dashboard/v_briefing', $data);
 			$this->load->view('template/footer');
+		}
+
+		//buat metod yg berfungsi untuk memproses ceklis yg sudah disimpan oleh EHS
+		public function proses_briefing(){
+
+			//  var_dump ($this->input->post('require_ehs'));die;
+			$data['id_subcont'] = $this->input->post('id_subcont');
+			$data['briefing'] = $this->input->post('require_ehs');
+
+			// var_dump ($this->input->post('require_ehs'));die;
+
+			$this->load->model('M_subcont');
+			$this->M_subcont->proses_briefingform($data);
 		}
 
 	}
