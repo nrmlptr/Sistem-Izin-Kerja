@@ -7,7 +7,7 @@
     <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script> <!-- Load file jquery -->
 </head>
 <body style="padding: 0 20px;">
-  <h2>Data Subcont</h2><hr>
+  <h2>Data izin Kerja Subcont - PT CBI</h2><hr>
     <form method="get" action="">
         <div class="row">
       <div class="col-sm-3 col-md-2">
@@ -102,6 +102,7 @@
                 <th scope="col">Standar Pengamanan</th>
                 <th scope="col">Validasi</th>
                 <th scope="col">Status</th>
+                <th scope="col">Require PIC EHS</th>
             </tr>
             <?php
             if( ! empty($iks)){
@@ -137,6 +138,7 @@
                     echo "<td>".$data->standar_pengamanan."</td>";
                     echo "<td>".$data->validasi."</td>";
                     echo "<td>".$data->status."</td>";
+                    echo "<td>".$data->require_ehs."</td>";
 
                 echo "</tr>";
                 // $no++;

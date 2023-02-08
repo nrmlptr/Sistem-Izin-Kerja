@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Cards</title>
+    <title>Confirm - Form IKSJSA</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('assets/sbadmin/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -53,11 +53,6 @@
                                     <!-- <h5><b>Nomor Registrasi Anda :  <?= $no_regis['no_regis'];?> </b></h5> -->
                                     <h6 class="m-0 font-weight-bold text-primary">IZIN KERJA SUBCONT BERHASIL DIKIRIM!</h6>
                                 </div>
-                                <!-- <div class="card-body">
-                                    The styling for this basic card example is created by using default Bootstrap
-                                    utility classes. By using utility classes, the style of the card component can be
-                                    easily modified with no need for any custom CSS!
-                                </div> -->
                             </div>
                             <a href="<?= base_url('Login/index');?>" class="btn btn-info">Kembali</a>
                         </div>

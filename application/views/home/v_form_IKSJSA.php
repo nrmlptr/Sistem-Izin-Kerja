@@ -98,13 +98,13 @@
                     </div>
                 </div>
             </div>
-            <form role="form" id="form" action="<?php echo base_url('Home/simpan_data');?>" method="POST">
+            <form role="form" id="form" action="<?php echo base_url('Home/simpan_data');?>" method="POST" name="formIKSJSA">
                 <input type="hidden" name="id_subcont">
                 <div class="row setup-content" id="step-1">
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <h3 style="color:black;"> Step 1 : IKS Form</h3>
-                            <small style="color: red;">Calon Pekerja Subcont Pastikan Mengisi Formulir dengan Benar Sesuai Data, Hindari Kesalahan dalam Pengisian Data.</small>
+                            <small style="color: red;">Pastikan Mengisi Semua Formulir dengan Sesuai, Hindari Kesalahan dalam Pengisian Formulir.</small>
                             <div class="form-group">
                                 <label class="control-label" style="color: black;">Nomor Registrasi</label>
                                 <input type="text" name="no_regis" value="<?php echo $no_regis?>" class="form-control col-sm-4" id="no_regis" readonly/>
@@ -193,9 +193,9 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Gedung E - Ballmill" id="defaultCheck11" name="lokasi_pekerjaan[]">
+                                        <input class="form-check-input" type="checkbox" value="Gedung E - Lead Powder Pasting" id="defaultCheck11" name="lokasi_pekerjaan[]">
                                         <label class="form-check-label" style="color: black;"  for="defaultCheck11">
-                                            Gedung E - Ballmill
+                                            Gedung E - Lead Powder Pasting
                                         </label>
                                     </div>
                                     <div class="form-check">
@@ -286,11 +286,11 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" style="color: black;">Nomor Handphone PIC Subcont</label><font color="red">*</font>
-                                <input type="number" name="nohp_subcont" class="form-control col-sm-6" id="nohp_subcont" for="nohp_subcont" required>
+                                <input type="number" name="nohp_subcont" class="form-control col-sm-6" id="nohp_subcont" for="nohp_subcont" onkeypress="return hanyaAngka(event)" required>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" style="color: black;">Jumlah PIC Subcont yang akan Bekerja</label><font color="red">*</font>
-                                <input type="number" name="jml_picsubcont" class="form-control col-sm-3" id="jml_picsubcont" for="jml_picsubcont" required>
+                                <label class="control-label" style="color: black;">Jumlah (MP Subcont) yang akan Bekerja</label><font color="red">*</font>
+                                <input type="number" name="jml_picsubcont" class="form-control col-sm-3" id="jml_picsubcont" for="jml_picsubcont" onkeypress="return hanyaAngka(event)" required>
                             </div>
                             <div class="form-group" id="namamp-section">
                                 <!-- <label class="control-label" style="color: black;">Nama Pekerja (MP Subcont)</label><font color="red">*</font>
@@ -309,7 +309,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" style="color: black;">Nomor Handphone PIC PT CBI</label><font color="red">*</font>
-                                <input type="number" name="nohp_cbi" class="form-control col-sm-6" id="nohp_cbi" for="nohp_cbi" required>
+                                <input type="number" name="nohp_cbi" class="form-control col-sm-6" id="nohp_cbi" for="nohp_cbi" onkeypress="return hanyaAngka(event)" required>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" style="color: black;">Peralatan Kerja yang Dibawa</label><font color="red">*</font>
@@ -385,12 +385,6 @@
                                             APRON
                                         </label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="apdtambahan11" name="apd_tambahan[]" value="APAR">
-                                        <label class="form-check-label" style="color: black;"  for="apdtambahan11">
-                                            APAR
-                                        </label>
-                                    </div>
                                     <div class="form-group">
                                         <small style="color: red;">Jika APD Tambahan lebih dari 1, silahkan ceklis sesuai dengan banyaknya APD yang dibawa.</small>
                                     </div>  
@@ -447,7 +441,7 @@
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-15">
                                                         <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
+                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib tersedia APAR" id="conditional-1">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-1">
@@ -487,7 +481,7 @@
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-13">
                                                         <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
+                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-5">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-5">
@@ -521,7 +515,7 @@
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-50">
                                                         <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
+                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-8">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-8">
@@ -555,7 +549,7 @@
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-50">
                                                         <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p>
+                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-11">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-11">
@@ -601,7 +595,7 @@
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-15">
                                                         <!-- <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3> -->
-                                                        <!-- <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib</p> -->
+                                                        <!-- <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p> -->
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Kategori Umum : Tidak Ada Syarat Wajib" id="conditional-16">
                                                             <label class="form-check-label" for="conditional-16" style="color: red;">
@@ -1461,6 +1455,15 @@
                     )
                 }
             });
+
+
+            //SCRIPT UNTUK INPUT ANGKA SAJA PADA KOLOM NOMOR
+            function hanyaAngka(event) {
+                var angka = (event.which) ? event.which : event.keyCode
+                if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                    return false;
+                return true;
+            }
 
         </script>
 
