@@ -73,21 +73,6 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
             <td>
                 <span style="font-size: 12px"><?=date('d-m-Y', strtotime($sbc[0]->tanggal_pengajuan))?>/IZIN KERJA SUBCONT</span>
             </td>
