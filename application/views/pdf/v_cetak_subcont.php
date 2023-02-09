@@ -36,7 +36,7 @@
     </tr>
 </table>
 <p align="center"> 
-    <span style="font-size: 18px"><b>IZIN KERJA SUBCONT <?php echo $sbc[0]->nama_perusahaan?> <br> DI PT CENTURY BATTERIES INDONESIA</b></span> <br>
+    <span style="font-size: 18px"><b>IZIN KERJA SUBCONT PT CENTURY BATTERIES INDONESIA</b></span> <br>
 </p>
 <hr>
 <p>

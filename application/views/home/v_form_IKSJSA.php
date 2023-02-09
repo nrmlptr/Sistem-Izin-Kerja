@@ -320,7 +320,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" style="color: black;">APD yang Wajib Dipakai</label>
-                                <input type="text" class="form-control col-sm-7" for="apd_dipakai" id="apd_dipakai" name="apd_dipakai" value="Mask/Respirator and Saftey Shoes" readonly>
+                                <input type="text" class="form-control col-sm-7" for="apd_dipakai" id="apd_dipakai" name="apd_dipakai" value="Mask/Respirator and Safety Shoes" readonly>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" style="color: black;">APD Tambahan</label><font color="red">*</font>
