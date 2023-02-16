@@ -48,8 +48,8 @@
 //sweet alert untuk save data
 $('#btnAlert').on('click',function(){
     Swal.fire({
-        title: 'Konfirmasi Kegiatan Briefing',
-        text: "Yakin Sudah Melakukan Briefing ?",
+        title: 'Konfirmasi Kegiatan Safety Induction',
+        text: "Sudah Melakukan Safety Induction ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -58,7 +58,7 @@ $('#btnAlert').on('click',function(){
     }).then((result) => {
         if (result.isConfirmed) {
             $('#btn').click();
-            Swal.fire('Data Sudah Dilakukan Briefing !', '', 'success')
+            Swal.fire('Sudah Dilakukan Safety Induction !', '', 'success')
         }
     })
 });
