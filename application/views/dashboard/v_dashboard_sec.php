@@ -46,7 +46,7 @@
                                 <td style="color: black;"><?php if($data->kategori_pekerjaan != 'umum'){
                                     echo '<span style="color: red;">Perlu Melakukan Safety Induction dengan PIC EHS</span>';
                                 }else{
-                                    echo '<span style="color: blue;">Tidak Perlu Briefing</span>';
+                                    echo '<span style="color: blue;">Tidak Perlu Safety Induction</span>';
                                 }?></td>
                                 <td style="color: black;">
                                     <a href="<?php echo base_url('Dashboard/cekSecurity/'.$data->id_subcont);?>" class="btn btn-info">
