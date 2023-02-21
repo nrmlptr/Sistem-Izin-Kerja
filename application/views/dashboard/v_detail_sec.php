@@ -3,8 +3,8 @@
         <!-- Basic Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-primary"><b>Data Izin Kerja Subcont -- </b>
-                    <a href="<?= base_url('dashboard/konfirm_subcont');?>" class="btn btn-info">Kembali</a>
+                <h5 class="m-0 font-weight-bold text-dark"><b>Data Izin Kerja Subcont -- </b>
+                    <a href="<?= base_url('dashboard/konfirm_subcont');?>" class="btn btn-secondary">Kembali</a>
                 </h5>
             </div>
             <div class="card-body">

@@ -3,14 +3,14 @@
         <!-- Basic Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-primary"><b>Data Izin Kerja Subcont -- </b>
+                <h5 class="m-0 font-weight-bold text-dark"><b>Data Izin Kerja Subcont -- </b>
                     <?php if($sbc[0]->status == 'approved'):?>
                         <a href="<?php echo base_url('dashboard/cetak_detail/'.$sbc[0]->id_subcont)?>">
                             <button class='btn btn-secondary'>Cetak Data</button>
                         </a>
                     <?php endif;?>
                     <!-- <a href="<?php echo base_url('dashboard/cetak_detail/'.$sbc[0]->id_subcont)?>"><button class='btn btn-secondary'>Cetak Detail</button></a> -->
-                    <a href="<?= base_url('dashboard/konfirm_form');?>" class="btn btn-info">Kembali</a>
+                    <a href="<?= base_url('dashboard/konfirm_form');?>" class="btn btn-success">Kembali</a>
                 </h5>
             </div>
             <div class="card-body">

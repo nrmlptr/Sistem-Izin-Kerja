@@ -22,7 +22,7 @@
 
     </head>
 
-    <body class="bg-gradient-primary">
+    <body class="bg-gradient-success">
 
         <div class="container">
 
@@ -54,7 +54,7 @@
                                             <!-- <a href="#" class="btn btn-primary btn-user btn-block" type="submit">
                                                 Login
                                             </a> -->
-                                            <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
+                                            <button class="btn btn-success btn-user btn-block" type="submit">Login</button>
                                             <hr>
                                             <h6 class="text-center" style="color: black;">Subcont, <b>Klik Tombol di Bawah ini</b> untuk Mengisi Form</h6>
                                             <a href="<?php echo base_url('Home/form_IKSJSA');?>" class="btn btn-google btn-user btn-block">

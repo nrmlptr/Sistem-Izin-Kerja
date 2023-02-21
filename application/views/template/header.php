@@ -19,7 +19,6 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url('assets/sbadmin/')?>css/sb-admin-2.min.css" rel="stylesheet">
-    
 
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url('assets/sbadmin/');?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -35,14 +34,15 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="<?php echo base_url('assets/images/');?>k3logo.ico" alt class="w-px-40 h-auto rounded-circle" />
                 </div>
-                <div class="sidebar-brand-text mx-3">IKS SYSTEM<sup></sup></div>
+                <div class="sidebar-brand-text mx-3" style="color: black;">IKS SYSTEM<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -59,7 +59,7 @@
             <!-- <hr class="sidebar-divider"> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <div class="sidebar-heading" style="color: black;">
                 Data Izin Kerja Subcont
             </div>
 
@@ -69,7 +69,7 @@
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Master</span>
+                    <span style="color: black;">Data Master</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">

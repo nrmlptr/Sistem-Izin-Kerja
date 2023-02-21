@@ -33,7 +33,7 @@
                 <div class="modal-body" style="color: black;">Silahkan klik logout untuk mengakhiri sesi.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?php echo base_url('Login/logout');?>">Logout</a>
+                    <a class="btn btn-success" href="<?php echo base_url('Login/logout');?>">Logout</a>
                 </div>
             </div>
         </div>

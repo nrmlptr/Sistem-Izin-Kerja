@@ -12,7 +12,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Data Izin Kerja Subcont PT CBI --
+    <h6 class="m-0 font-weight-bold text-dark">Data Izin Kerja Subcont PT CBI --
       <a href="<?php echo base_url('excel/index')?>"><button class='btn btn-secondary'>Cetak Data</button></a>
     </h6>                 
   </div>
@@ -121,6 +121,8 @@
                         <a href="<?php echo base_url('Dashboard/prosesBriefing/'.$data->id_subcont);?>" class="btn btn-info mt-3">
                           <span></span>Confirm Safety Induction
                         </a>
+                      <?php }elseif($data->kategori_pekerjaan == 'umum'){ ?>
+                        <span style="color: green;">Tidak Perlu Safety Induction</span>
                       <?php }else{ ?>
                         <span style="color: blue;">Sudah Melakukan Safety Induction</span>
                       <?php } ?>

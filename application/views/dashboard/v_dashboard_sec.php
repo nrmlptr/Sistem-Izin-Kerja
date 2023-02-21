@@ -6,7 +6,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold text-primary">Data Izin Kerja Subcont - PT CBI</h4>
+            <h4 class="m-0 font-weight-bold text-dark">Data Izin Kerja Subcont - PT CBI</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -49,7 +49,7 @@
                                     echo '<span style="color: blue;">Tidak Perlu Safety Induction</span>';
                                 }?></td>
                                 <td style="color: black;">
-                                    <a href="<?php echo base_url('Dashboard/cekSecurity/'.$data->id_subcont);?>" class="btn btn-info">
+                                    <a href="<?php echo base_url('Dashboard/cekSecurity/'.$data->id_subcont);?>" class="btn btn-success">
                                         <span></span>View
                                     </a>
                                 </td>
