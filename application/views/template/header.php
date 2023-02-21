@@ -239,7 +239,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo 'Hallo - ' . $this->session->userdata('username')?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="<?php echo base_url('assets/sbadmin/')?>img/undraw_profile.svg">
+                                    src="<?php echo base_url('assets/sbadmin/')?>img/logok3hijau.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
