@@ -92,7 +92,7 @@
                                 <!-- <td style="color: black;" align="center"> <img src='<?php echo base_url('uploads/'.$data->gambar)?>' style="width: 150px; height: 150px;"></td> -->
                                 <td style="color: black;"><?= $data->status?></td>
                                 <td style="color: black;"><?= $data->validasi?></td>
-                                <td style="color: black;"><?php if($data->status == 'draft'){?>
+                                <td style="color: black;"><?php if($data->validasi == ''){?>
                                     <a href="<?php echo base_url('Dashboard/prosesvalidasiData/'.$data->id_subcont);?>" class="btn btn-warning">
                                         <span></span>Validasi
                                     </a>

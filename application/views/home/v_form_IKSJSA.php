@@ -440,28 +440,28 @@
                                             <div id="form-input">
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-15">
-                                                        <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
+                                                        <h5 class="box-title" style="color: black;">SYARAT WAJIB KATEGORI MELIBATKAN PANAS</h5>
+                                                        <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib tersedia APAR" id="conditional-1">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib tersedia APAR" id="conditional-1" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-1">
                                                                 Wajib tersedia APAR
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib proteksi area kerja" id="conditional-2">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib proteksi area kerja" id="conditional-2" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-2">
                                                                 Wajib dipasang pembatas (safety line)/ Cover area kerja 
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Bebas Area bahan mudah terbakar" id="conditional-3">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Bebas Area bahan mudah terbakar" id="conditional-3" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-3">
                                                                 Area bebas dari cairan, debu, kain, B3 yang mudah terbakar
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lindungi dengan TERPAL" id="conditional-4">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lindungi dengan TERPAL" id="conditional-4" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-4">
                                                                 Singkirkan benda yang mudah terbakar / lindungi dengan TERPAL 
                                                             </label>
@@ -480,22 +480,22 @@
                                             <div id="form-input">
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-13">
-                                                        <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
+                                                        <h5 class="box-title" style="color: black;">SYARAT WAJIB RUANG TERBATAS</h5>
+                                                        <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-5">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-5" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-5">
                                                                 Minimal melibatkan 2 orang pekerja
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib pastikan oksigen tersediaa" id="conditional-6">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib pastikan oksigen tersedia" id="conditional-6" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-6">
                                                                 Wajib memastikan ketersediaan oksigen
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="atur waktu maksimal kerja" id="conditional-7">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="atur waktu maksimal kerja" id="conditional-7" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-7">
                                                                 Lakukan pengaturan waktu kerja maksimal di area terbatas
                                                             </label>
@@ -514,22 +514,22 @@
                                             <div id="form-input">
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-50">
-                                                        <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
+                                                        <h5 class="box-title" style="color: black;">SYARAT WAJIB LIBATKAN KETINGGIAN</h5>
+                                                        <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-8">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-8" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-8">
                                                                 Minimal melibatkan 2 orang pekerja
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek scaffolding/tangga" id="conditional-9">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek scaffolding/tangga" id="conditional-9" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-9">
                                                                 Lakukan pengecekan alat kerja : scaffolding/ tangga.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek body harness dan helm" id="conditional-10">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek body harness dan helm" id="conditional-10" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-10">
                                                                 Lakukan pengecekan body harness dan helm 
                                                             </label>
@@ -548,34 +548,34 @@
                                             <div id="form-input">
                                                 <div class="row mb-3 form-group">
                                                     <div class="col-sm-50">
-                                                        <h3 class="box-title" style="color: black;">SYARAT WAJIB</h3>
-                                                        <p style="color: red;">Silahkan Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
+                                                        <h5 class="box-title" style="color: black;">SYARAT WAJIB LIBATKAN LISTRIK TEGANGAN MENENGAH TINGGI</h5>
+                                                        <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-11">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-11" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-11">
                                                                 Minimal melibatkan 2 orang pekerja.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="PIC memiliki sertifikat Teknisi K3 Listrik" id="conditional-12">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="PIC memiliki sertifikat Teknisi K3 Listrik" id="conditional-12" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-12">
                                                                 PIC harus mempunyai sertifikat Teknisi K3 Listrik.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area memiliki penerangan yang cukup" id="conditional-13">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area memiliki penerangan yang cukup" id="conditional-13" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-13">
                                                                 Area kerja harus mempunyai penerangan yang cukup.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area bebas genangan air" id="conditional-14">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area bebas genangan air" id="conditional-14" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-14">
                                                                 Area kerja harus bebas genangan air.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lengkap dengan LOTO sesuai Standar" id="conditional-15">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lengkap dengan LOTO sesuai Standar" id="conditional-15" required="required">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-15">
                                                                 Pastikan dilengkapi LOTO sesuai standar.
                                                             </label>
@@ -634,13 +634,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="col-sm-12">
-                                                            <input type="hidden" name="id_jsa">
-                                                            <textarea class="form-control" id="aktivitas_pekerjaan" for="aktivitas_pekerjaan" name="aktivitas_pekerjaan[]" rows="3"></textarea>
+                                                            <!-- <input type="hidden" name="id_jsa"> -->
+                                                            <textarea class="form-control" id="aktivitas_pekerjaan" for="aktivitas_pekerjaan" name="aktivitas_pekerjaan[]" rows="3" required></textarea>
                                                             <small style="color: red;">Isi Form ini dengan urutan pekerjaan yang akan dilakukan di PT CBI.</small> 
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="form-group clearfix">
+                                                        <div class="form-group clearfix"></div>
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="checkbox" id="aspek1" name="aspek[]" value="JATUH DARI KETINGGIAN">
                                                                 <label class="form-check-label" style="color: black;"  for="aspek1">
@@ -1282,7 +1282,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                            <div id="button_validasi_jsa">
+
+                            </div>
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" onclick="validasi_rows()">Next</button>
                         </div>
                     </div>
                 </div>
@@ -1306,6 +1309,19 @@
 
         <!-- Custom scripts for all pages-->
         <script src="<?php echo base_url('assets/sbadmin/');?>js/sb-admin-2.min.js"></script>
+
+        <script type="text/javascript">
+            // Script Validasi
+            function validasi_rows() {
+                
+                // console.log(input_aktivitas)
+                // console.log(input_standar)
+
+                // if (arr_aktivitas.length != arr_standar.length) {
+                //     alert('afh iyah?')
+                // }
+            }
+        </script>
 
         <script type="text/javascript">
             //script untuk form wizard
@@ -1345,6 +1361,31 @@
                             $(curInputs[i]).closest(".form-group").addClass("has-error");
                         }
                     }
+
+                    // script validasi JSA
+                    var input_aktivitas = document.getElementsByName('aktivitas_pekerjaan[]');
+                    var arr_aktivitas = [];
+                    for (var i = 0; i < input_aktivitas.length; i++) {
+                        arr_aktivitas.push(input_aktivitas[i].value);
+                    }
+
+                    var input_standar = document.getElementsByName('standar_pengamanan[]');
+                    var arr_standar = [];
+                    for (var j = 0; j < input_standar.length; j++) {
+                        arr_standar.push(input_standar[j].value);
+                    }
+
+                    var fix_arr_aktivitas = arr_aktivitas.filter((str) => str !== '');
+                    var fix_arr_standar = arr_standar.filter((str) => str !== '');
+
+                    console.log(fix_arr_aktivitas);
+                    console.log(fix_arr_standar);
+
+                    if (fix_arr_aktivitas.length != fix_arr_standar.length) {
+                        isValid = false;
+                        alert('JSA BELUM LENGKAP, SILAHKAN LENGKAPI!');
+                    }
+                    // end script
 
                     if (isValid)
                         nextStepWizard.removeAttr('disabled').trigger('click');
@@ -1464,6 +1505,18 @@
                     return false;
                 return true;
             }
+
+            jQuery(function($) {
+                var requiredCheckboxes = $(':checkbox[required]');
+                requiredCheckboxes.on('change', function(e) {
+                    var checkboxGroup = requiredCheckboxes.filter('[name="' + $(this).attr('name') + '"]');
+                    var isChecked = checkboxGroup.is(':checked');
+                    checkboxGroup.prop('required', !isChecked);
+                });
+                requiredCheckboxes.trigger('change');
+            });
+
+            
 
         </script>
 
