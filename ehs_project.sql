@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Feb 2023 pada 10.11
+-- Waktu pembuatan: 08 Mar 2023 pada 10.30
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -32,26 +32,6 @@ CREATE TABLE `gambar` (
   `subcont_id` int(3) NOT NULL,
   `judul` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `gambar`
---
-
-INSERT INTO `gambar` (`id`, `subcont_id`, `judul`) VALUES
-(7, 2, 'Melibatkan_ketinggian8.jpg'),
-(8, 2, 'melibatkan_panas2.jpg'),
-(9, 3, 'listrik_trgangan.jpg'),
-(10, 3, 'melibatkan_ruang_terbatas8.jpg'),
-(11, 4, 'Melibatkan_ketinggian9.jpg'),
-(12, 9, 'melibatkan_panas3.jpg'),
-(13, 9, 'pengelasan.jpg'),
-(14, 10, 'umum.jpeg'),
-(15, 10, 'melibatkan_ruang_terbatas9.jpg'),
-(16, 5, 'umum1.jpeg'),
-(17, 5, 'melibatkan_panas4.jpg'),
-(18, 5, 'pengelasan1.jpg'),
-(19, 11, 'melibatkan_panas5.jpg'),
-(20, 11, 'pengelasan2.jpg');
 
 -- --------------------------------------------------------
 
@@ -88,24 +68,8 @@ CREATE TABLE `iks` (
   `standar_pengamanan` varchar(255) NOT NULL,
   `validasi` varchar(255) NOT NULL,
   `require_ehs` enum('briefing','nobriefing') NOT NULL,
-  `status` enum('draft','checked','approved') NOT NULL
+  `status` enum('draft','checked','approved','rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `iks`
---
-
-INSERT INTO `iks` (`id_subcont`, `no_regis`, `tanggal_pengajuan`, `nama_perusahaan`, `alamat_perusahaan`, `wkt_mulai`, `wkt_selesai`, `lokasi_pekerjaan`, `direktur_koordinat`, `pic_subcont`, `nohp_subcont`, `jml_picsubcont`, `namamp_subcont`, `pic_cbi`, `sie_pic_cbi`, `nohp_cbi`, `peralatan`, `apd_dipakai`, `apd_tambahan`, `jenis_pekerjaan`, `kategori_pekerjaan`, `syarat_wajib`, `aktivitas_pekerjaan`, `aspek`, `dampak`, `standar_pengamanan`, `validasi`, `require_ehs`, `status`) VALUES
-(2, '0102230002', '2023-02-01', 'cekcek', 'tes', '2023-02-02', '2023-02-03', 'Area Office, Area Taman', 'cek', 'cek', '231', '2', 'Winda, Raihan', 'cek', 'cek', '2313', 'Palu,Tang,Bor Listrik, Paku beton, Gergaji Mesin', 'Mask/Respirator and Saftey Shoes', 'Safety Glass, Safety Googles, Face Shield', 'cek', 'umum', 'Kategori Umum : Tidak Ada Syarat Wajib', 'cek, cek, , ', 'TERKENA PERCIKAN CAIRAN KIMIA, JATUH DARI KETINGGIAN', 'KRAM PADA TANGAN / KAKI, PENCEMARAN LINGKUNGAN', 'cek, cek, , ', 'Tidak Ada Syarat Wajib', '', 'checked'),
-(3, '0102230003', '2023-02-01', 'PT TES IKS FEBRUARI 1', 'Kebayoran Lama, Jakarta Selatan', '2023-02-01', '2023-02-03', 'Area Taman, Gedung A - Assembling, Gedung C - Formation', 'Pak Sugandi', 'Ibu Widya ', '12312412', '6', 'Rian, Gunawan, Dudi, Wirawan, Putra, Zaenal', 'Pa Mahfud', 'PPIC', '14214123123', 'Palu,Tang,Bor Listrik, Paku beton, Gergaji Mesin', 'Mask/Respirator and Saftey Shoes', 'Helmet, Safety Glass, Safety Googles', 'Kontraktor', 'libatkan ruang terbatas, libatkan listrik tegangan tinggi', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja, Min 2 Pekerja, PIC memiliki sertifikat Teknisi K3 Listrik, Area memiliki penerangan yang cukup, Area bebas genangan air, Lengkap dengan LOTO sesuai Standar', 'tesjsa1namamp, tesjsanammp2, tesjsanamamp3, tesjsanamamp4', 'TERSAYAT, JATUH DARI KETINGGIAN, TERKENA PERCIKAN LAS, LIMBAH B3 DAN NON B3', 'KERUSAKAN FASILITAS, PENCEMARAN LINGKUNGAN, LUKA PADA JARI / TANGAN, GANGGUAN PERNAFASAN', 'cek, cek2, cek3, cek4', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja, Min 2 Pekerja, PIC memiliki sertifikat Teknisi K3 Listrik, Area memiliki penerangan yang cukup, Area bebas genangan air, Lengkap dengan LOTO sesuai Standar', 'briefing', 'approved'),
-(4, '0102230004', '2023-02-01', 'PT AMERTA JAYA ABADI', 'Cilandak, Jakarta Utara', '2023-02-01', '2023-02-03', 'Gedung B - Lead Powder Pasting, Gedung C - Formation, Gedung D - Assembling', 'Pak Renaldi', 'Ibu Riani', '09182013920', '10', 'Nuramalia Putri, Nur Banni Syarifah, Adnan Faiz Al Haqqi, Dara Rizqi Khoerunnisa, Dea Nurdiah, Widya Eka Pujiyanti, Anggi Nuraini, Nadiyah Azzifah, Veny Heryanti, Zahra Faiza Arief', 'Pa Mahfud', 'PPIC', '08239234893248230', 'Palu,Tang,Bor Listrik, Paku beton, Gergaji Mesin', 'Mask/Respirator and Saftey Shoes', 'Helmet, Full Body Harness, Sarung Tangan', 'Perbaiki Listrik', 'libatkan ketinggian', 'Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm, Min 2 Pekerja, PIC memiliki sertifikat Teknisi K3 Listrik, Area memiliki penerangan yang cukup', '1. Survey Lokasi, 2. Persiapan Peralatan dan Pekerja, 3. Action saat pengerjaan, 4. Finishing dan Cleaning Area', 'JATUH DARI KETINGGIAN, TERGELINCIR, JATUH DARI KETINGGIAN, TERGELINCIR, JATUH DARI KETINGGIAN, TERGELINCIR, JATUH DARI KETINGGIAN, TERGELINCIR', 'PATAH TULANG, KEMATIAN / FATALITY, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, KRAM PADA TANGAN / KAKI', 'APD Lengkap, APD Lengkap, APD Lengkap, APD Lengkap', 'Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', 'briefing', 'approved'),
-(5, '0202230001', '2023-02-02', 'PT SERAYU AGUNG', 'Kuningan, Jawa Barat', '2023-02-02', '2023-02-10', 'Gedung A - Assembling, Gedung D - Assembling, Gedung G - Assembling', 'Purnawirawan', 'Gilang Bangun Prakarsa', '098192384921', '15', 'Raihan Setiawan, Dirgantara, Widodo Saputra, Panji Permana, Ruli Walidain, Putra Agung Perkasa, Fiki Nur Sabani, Ade Rahman, Wahyu Nur Firmansyah, Rionaldi, Rico Adisti, Rey Kosasih, Rizaldi, Ilham Ramadhan, Yusup Salim', 'Nita W', 'MIS', '0891291913129', 'Bor Listrik, Tang, Obeng, Gergaji listrik, Paku beton', 'Mask/Respirator and Saftey Shoes', 'Helmet, Face Shield, Earplug, Earmuff, Full Body Harness, Sarung Tangan, APAR', 'Maintenance', 'libatkan panas', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', '1. Survey Lokasi, 2. Persiapan diri dan alat, , ', 'TERKENA PERCIKAN LAS, GETARAN MEKANIS ALAT', 'LUKA PADA TUBUH, LUKA PADA JARI / TANGAN', 'apd lengkap, apd lengkap, , ', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', 'nobriefing', 'checked'),
-(6, '0202230002', '2023-02-02', 'PT HARITANU KAMIS', 'Pekanbaru, Riau.', '2023-02-02', '2023-02-10', 'Area Office, Area Taman', 'Tarja Wirawan', 'Puri fadillah ', '09812983129', '4', 'Riska Fitriyani, Muhammad Ibrahim, Lutfi Istada Anwar, Dian Fatimah Hartoyo', 'Dedi Mulyawan', 'MAINTENANCE', '09329042390', 'Obeng Bunga, Paku, Bor Listrik, Palu', 'Mask/Respirator and Saftey Shoes', 'Helmet, Face Shield, Full Body Harness, Sarung Lengan, Sarung Tangan', 'Maintenance', 'libatkan ruang terbatas', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja', '1. Persiapan area, 2. Persiapan alat (oksigen terutama), 3. Action, 4. Finishing dan Cleaning Area', 'TERJEPIT, TERPAPAR UAP, GETARAN MEKANIS ALAT, TERJEPIT', 'PATAH TULANG, KRAM PADA TANGAN / KAKI, LUKA PADA TUBUH, KEMATIAN / FATALITY', 'APD Lengkap, APD Lengkap., APD Lengkap., APD Lengkap', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja', 'nobriefing', 'draft'),
-(7, '0702230001', '2023-02-07', 'PT TES BRIEFING', 'JAKARTA UTARA', '2023-02-07', '2023-02-09', 'Area Office, Area Taman', 'Darmadi', 'Kinoy', '092182391232', '6', 'Rizal, Rey , Pikri, Albi, Daffa, Juan', 'Nonik', 'EHS', '093248203', 'Bor Listrik, Tang, Obeng, Gergaji listrik, Paku beton', 'Mask/Respirator and Saftey Shoes', 'Face Shield, Earplug', 'Pre Instalasi', 'libatkan ketinggian', 'Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', '1.Persiapan Diri , 2. Persiapan Alat, 3. Mulai pekerjaan, 4. Cleaning Area', 'JATUH DARI KETINGGIAN, JATUH DARI KETINGGIAN, JATUH DARI KETINGGIAN, JATUH DARI KETINGGIAN', 'PATAH TULANG, LUKA PADA TUBUH, KEMATIAN / FATALITY, KRAM PADA TANGAN / KAKI', 'APD Lengkap, APD Lengkap, APD Lengkap, APD Lengkap', 'Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', 'nobriefing', 'draft'),
-(8, '0702230002', '2023-02-07', 'testes', 'cek', '2023-02-08', '2023-02-10', ' Gedung E - Punchgrid, Gedung F - Formation', 'tes', 'cel', '23423', '2', 'cek, tes', 'cek', 'cek', '3423', 'cek', 'Mask/Respirator and Saftey Shoes', 'Helmet', 'cekeck', 'libatkan ruang terbatas, libatkan ketinggian', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja, Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', 'cek123, tes123, , ', 'JATUH DARI KETINGGIAN, TERSENGAT LISTRIK', 'PENCEMARAN LINGKUNGAN, KEMATIAN / FATALITY', 'cek, tes, , ', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja, Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', 'nobriefing', 'draft'),
-(9, '0702230003', '2023-02-07', 'PT IKS HASIL BRIEFING', 'BOGOR', '2022-03-22', '2022-03-30', 'Gedung A - Charging, Gedung B - Grid Casting', 'Gita Widianti', 'Ratna Diana', '210391283', '2', 'Martin, Jeffry', 'Pa Saeful', 'PPIC', '2352352', 'Bor Listrik, Tang, Obeng, Gergaji listrik, Paku beton', 'Mask/Respirator and Saftey Shoes', 'Face Shield, Full Body Harness, Sarung Tangan, APRON', 'Maintenance', 'libatkan panas', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', '1.cekbriefing, 2.cekbrief, 3.cekbrief, 4.cekbrief', 'TERPAPAR UAP, GETARAN MEKANIS ALAT, TERKENA PERCIKAN LAS, TERPAPAR UAP', 'KEMATIAN / FATALITY, LUKA PADA JARI / TANGAN, LUKA PADA TUBUH, LUKA BAKAR', 'tes, tes2, tes3, tes4', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', 'briefing', 'approved'),
-(10, '0802230001', '2023-02-08', 'PT MAKMUR JAYA', 'Cililitan,Jakarta Pusat', '2023-02-09', '2023-02-23', 'Gedung A - Assembling, Gedung D - Assembling, Gedung G - Assembling', 'Fahri Permana', 'Gunawan', '098812837219', '5', 'Reza Yuda Fadillah, Alfhin Agustian Pardede, Rafli Al Huda, Angga Hidayat, Ario Putra Siam Purnomo', 'Nita W', 'MIS', '09218390127', 'Komputer,Fiber Optic Cabel, Crump Tool', 'Mask/Respirator and Saftey Shoes', 'Helmet, Safety Googles, Face Shield, Sarung Tangan', 'Maintenance', 'umum, libatkan ruang terbatas', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja, Kategori Umum : Tidak Ada Syarat Wajib', '1.Crosscheck Area, 2. Persiapan Diri dan Alat, 3. Action Maintenance, ', 'TERSENGAT LISTRIK, GETARAN MEKANIS ALAT, TERSENGAT LISTRIK', 'KEMATIAN / FATALITY, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN', 'APD Lengkap, APD Lengkap, APD Lengkap, ', 'Min 2 Pekerja, Wajib pastikan oksigen tersediaa, atur waktu maksimal kerja', 'briefing', 'approved'),
-(11, '0802230002', '2023-02-08', 'CV BERKAH MANDIRI MAHKOTA', 'CIKARANG,BEKASI', '2023-02-04', '2023-02-06', 'Gedung B - Grid Casting', 'MARSIN', 'MARSIN', '09821921029', '2', 'MARSIN, ANTO', 'AHMAD FADILLAH, ANGGA', 'PPIC', '4352345324', 'GERINDA TANGAN, MC.LAS', 'Mask/Respirator and Saftey Shoes', 'Safety Glass, Face Shield', 'INSTALASI', 'libatkan panas', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', '1.Pembuatan Sekat (Gerinda Plat, Pengelasan), 2. Instalasi Sekat, , ', 'GETARAN MEKANIS ALAT, TERSAYAT, KEBAKARAN, TERJEPIT', 'KEMATIAN / FATALITY, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, KRAM PADA TANGAN / KAKI, KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA JARI / TANGAN', 'Hot Permitt, Penggunaan APD Lengkap, Penggunaan APD, , ', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', '', 'approved');
 
 -- --------------------------------------------------------
 
@@ -117,7 +81,10 @@ CREATE TABLE `karyawan` (
   `id_krywn` int(2) NOT NULL,
   `nik` varchar(255) NOT NULL,
   `nm_karyawan` varchar(255) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
+  `divisi` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `seksi` varchar(255) NOT NULL,
+  `bagian` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -126,10 +93,96 @@ CREATE TABLE `karyawan` (
 -- Dumping data untuk tabel `karyawan`
 --
 
-INSERT INTO `karyawan` (`id_krywn`, `nik`, `nm_karyawan`, `alamat`, `created_at`, `update_at`) VALUES
-(1, '2001', 'Nonik S', 'Karawang', '2023-01-06 07:46:04', NULL),
-(2, '2002', 'Jerry S', 'Jakarta Bara', '2023-01-08 14:22:20', NULL),
-(3, '5001', 'Wawan Kurniawan', 'Teluk Jambe Timur', '2023-01-30 06:09:16', NULL);
+INSERT INTO `karyawan` (`id_krywn`, `nik`, `nm_karyawan`, `divisi`, `department`, `seksi`, `bagian`, `created_at`, `update_at`) VALUES
+(1, '2819', 'Nonik Sahaya Citra Purnamasari', 'PLANT SERVICE', 'EHS', 'Environment', 'Kasubsie', '2023-01-06 07:46:04', '2023-03-08 08:52:49'),
+(2, '1617', 'Ahmad Zaelani', 'Plant Service', 'EHS', 'Health & Safety', 'Kasie', '2023-01-08 14:22:20', '2023-03-08 07:48:51'),
+(3, '496', 'Rusli', 'Administrasi', 'GA, IR & CSR', 'Security', 'Karu Security', '2023-01-30 06:09:16', '2023-03-08 07:54:27'),
+(4, '1625', 'Sugiyanto', 'Karawang', '', '', '', '2023-03-07 07:18:52', '2023-03-08 07:53:08'),
+(5, '2012', 'Dedi R', 'PLANT SERVICE', 'EHS', 'Health & Safety', 'Kasubsie', '2023-03-07 07:18:52', '2023-03-08 08:51:15'),
+(6, '3913', 'Ihan Pratama', '', '', '', '', '2023-03-08 07:39:23', '2023-03-08 07:55:40'),
+(7, '412', 'Mulazim', 'Plant', 'Production 1', 'Pasting & Formation', 'Kasie', '2023-03-08 07:39:23', NULL),
+(8, '485', 'Nyono', 'Administration', 'Procurement', 'Component', 'Kasie', '2023-03-08 07:39:23', NULL),
+(9, '517', 'Mujiono', 'Administration', 'GA, IR & CSR', 'GA & Security', 'Kasie', '2023-03-08 07:39:23', NULL),
+(10, '563', 'Suubi', 'Plant', 'PPIC', 'Inv Control Finished Goods & Delivery', 'Kasie', '2023-03-08 07:39:23', NULL),
+(11, '1095', 'Ciptadi Nugroho', 'Plant', 'PPIC', 'Production Planning Control & Inv', 'Kasie', '2023-03-08 07:39:23', NULL),
+(12, '1257', 'Rendi Widi Nugroho', 'Fin, Acc, Mark & MIS', 'Marketing', 'Marketing', 'Kasie', '2023-03-08 07:39:23', NULL),
+(13, '1361', 'Agnes Retroning Astuti', 'Fin, Acc, Mark & MIS', 'Fin, Acc & Risk MGT Cont', 'Finance, Treasury & Costing', 'Kasie', '2023-03-08 07:39:23', NULL),
+(14, '1391', 'Etika Ayu Mindia Putri', 'Administration', 'HRD', 'Recruitment & Compensation Benefit', 'Kasie', '2023-03-08 07:48:02', NULL),
+(15, '1618', 'Arif Aprianto', 'Engineering', 'Quality Assurance', 'Quality Assurance', 'Kasie', '2023-03-08 07:48:02', NULL),
+(16, '1697', 'Evei Adi Kurniawan', 'Plant Service', 'Maintenance', 'Tooling-1 Plate Process', 'Kasie', '2023-03-08 07:48:02', NULL),
+(17, '1815', 'Novian Andrika', 'Plant', 'Supervisor shift 2 & shift 3', 'Supervisor Shift 2', 'Kasie', '2023-03-08 07:48:02', NULL),
+(18, '1971', 'Ahmad Syafiq', 'Engineering', 'Product Engineering', 'Product Deployment', 'Kasie', '2023-03-08 07:48:02', NULL),
+(19, '2331', 'Pradipta Fajar Yuniarto', 'Engineering', 'Process Engineering', 'Process Eng MCB IB & Wet Charging', 'Kasie', '2023-03-08 07:48:02', NULL),
+(20, '2346', 'Latif Usman', 'Plant Service', 'Maintenance', 'Tooling-2 Assembling', 'Kasie', '2023-03-08 07:48:02', NULL),
+(21, '2526', 'Kautzar Rizka Igaputra', 'Plant', 'PPIC', 'Warehouse Material & Comp', 'Kasie', '2023-03-08 07:48:02', NULL),
+(22, '2593', 'Cipto Tigor Pribadi Nainggolan', 'Engineering', 'Process Engineering', 'Process End Lead Powder Pasting & Formation', 'Kasie', '2023-03-08 08:21:24', NULL),
+(23, '2644', 'Ersha Nuranjarsari', 'Administration', 'HRD', 'People Development', 'Kasie', '2023-03-08 08:21:24', NULL),
+(24, '', 'Indri Afriyanti', 'X', 'Industrial System', 'Industrial System Development', 'Kasie', '2023-03-08 08:21:24', NULL),
+(25, '2862', 'Sucipto Hening', 'Plant Service', 'Maintenance', 'Maintenancae-2 Assembling', 'Kasie', '2023-03-08 08:21:24', NULL),
+(26, '2863', 'Fahrizal Fitra Utama', 'x', 'Industrial System', 'Industrial System Development', 'Kasie', '2023-03-08 08:21:24', NULL),
+(27, '2939', 'Diyan Luqman Nur Fatoni B ', 'Engineering', 'Quality Assurance', 'Incoming Part, PDC & Claim Handling', 'Kasie', '2023-03-08 08:21:24', NULL),
+(28, '3012', 'Akhmad Mardhani', 'Plant', 'Production 2', 'Assembling A, MCB & Industrial Batt', 'Kasie', '2023-03-08 08:21:24', NULL),
+(29, '3014', 'Polin Hasintongan S', 'Plant', 'Production 1', 'Grid Casting, Punching & MLR', 'Kasie', '2023-03-08 08:21:24', NULL),
+(30, '3305', 'Ari Mustakim', 'Engineering', 'Product Engineering', 'Produk Development', 'Kasie', '2023-03-08 08:28:56', NULL),
+(31, '3446', 'Agatha Anggun Vidyanita', 'Administration', 'Procurement', 'Non Component', 'Kasie', '2023-03-08 08:28:56', NULL),
+(32, '3476', 'Saut Jumadi Situmorang', 'Plant Service', 'Maintenance', 'Utility, Workshop & Sparepart management', 'Kasie', '2023-03-08 08:28:56', NULL),
+(33, '3477', 'Kresna Bayu Aji', 'Plant Service', 'Maintenance', 'Maintenance-1 Plate Process', 'Kasie', '2023-03-08 08:28:56', NULL),
+(34, '3584', 'Rinta Setyo Nugroho', 'Fin,Acc,Mark & MIS', 'MIS', 'System & Development', 'Kasie', '2023-03-08 08:28:56', NULL),
+(35, '3651', 'Bagus Purnomo', 'Engineering', 'Process Engineering', 'Process Engineering Assembling', 'Kasie', '2023-03-08 08:28:56', NULL),
+(36, '3658', 'Rahmadian Pratama', 'Engineering', 'Qualiy Assurance', 'Production Quality Control', 'Kasie', '2023-03-08 08:28:56', NULL),
+(37, '3659', 'Ryandhanu Aldy Yudistira', 'Engineering', 'Process Enginering', 'Process Engineering Punching & Casting', 'Kasie', '2023-03-08 08:28:56', NULL),
+(38, '3688', 'KHANIFATTURRAHMAH', 'FIN, ACC, MARK & MIS', 'FIN, ACC  & RISK MGT CONT', 'PLANNING & COST CONTROL', 'KASIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(39, '3764', 'KIRANA DYAH UTARI KUSUMAPUTRI', 'ADMINISTRATION', 'PROCUREMENT', 'VENDOR DEVELOPMENT', 'KASIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(40, '461', 'YUSUF SLAMET PELITA', 'PLANT', 'PRODUCTION 2', 'ASSEMBLING A, MCB & INDUSTRIAL BATT', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(41, '481', 'NARSO', 'PLANT', 'PPIC', 'WAREHOUSE MATERIAL & COMP', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(42, '510', 'PARWADI', 'PLANT', 'PRODUCTION 2', 'ASSEMBLING G ', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(43, '523', 'NUR ALI', 'PLANT SERVICE', 'MAINTENANCE', 'TOOLING-1 PLATE PROCESS', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(44, '524', 'EDI SUWITO', 'PLANT', 'PRODUCTION 2', 'ASSEMBLING G', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(45, '546', 'MUSLIM', 'PLANT', 'PRODUCTION 1', 'GRID CASTING, PUNCHING & MLR', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(46, '551', 'MUSBIKHIN', 'PLANT', 'PRODUCTION 1', 'GRID CASTING, PUNCHING & MLR', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(47, '559', 'PUJIONO (B)', 'ENGINEERING', 'QUALITY ASSURANCE', 'PRODUCTION QUALITY CONTROL', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(48, '569', 'LASONO', 'PLANT', 'PPIC ', 'INV CONTROL FINISHED GOODS & DELIVERY', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(49, '584', 'YANTO', 'PLANT', 'PRODUCTION 1', 'PASTING ', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(50, '639', 'MASRURI', 'PLANT', 'PRODUCTION 2', 'ASSEMBLING G ', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(51, '645', 'ADE SURYANA', 'PLANT', 'PRODUCTION 1', 'PASTING ', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(52, '676', 'AGUS SUROTO', 'PLANT', 'PRODUCTION 1', 'FORMATION', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(53, '692', 'A.RIFAI', 'ADMINISTRATION', 'GA, IR & CSR', 'GA ', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(54, '698', 'IIM ARWISMAN', 'PLANT', 'PRODUCTION 2', 'ASSEMBLING A, MCB & INDUSTRIAL BATT', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(55, '715', 'JOKO SUKO PIRENO', 'FIN, ACC, MARK & MIS', 'MARKETING', 'MARKETING', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(57, '1030', 'DUDY MULYANTO', 'ENGINEERING', 'QUALITY ASSURANCE', 'PRODUCTION QUALITY CONTROL', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(58, '1139', 'FAHMI', 'FIN, ACC, MARK & MIS', 'FIN, ACC  & RISK MGT CONT', 'GEN ACCOUNTING & TAX', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(59, '2185', 'YUDA AJI PRASETYO', 'PLANT', 'PPIC ', 'INV CONTROL FINISHED GOODS & DELIVERY', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(60, '2441', 'WAHYU ADHANTA', 'PLANT', 'PRODUCTION 1', 'PASTING ', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(61, '2523', 'APRILIANTO CANDRA NUGROHO', 'PLANT SERVICE', 'MAINTENANCE', 'UTILITY, WORKSHOP & SPARE PART MANAGEMENT', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(62, '2524', 'BAYU SURYADI', 'PLANT SERVICE', 'MAINTENANCE', 'MAINTENANCE-2 ASSEMBLING', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(63, '2535', 'DIKA PRATAMA', 'PLANT', 'PRODUCTION 2', 'CHARGING', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(65, '2846', 'RIZKY TOYIBAH', 'PLANT SERVICE', 'MAINTENANCE', 'UTILITY, WORKSHOP & SPARE PART MANAGEMENT', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(66, '3368', 'FREDY SEPTIAN', 'PLANT SERVICE', 'MAINTENANCE', 'MAINTENANCE-1 PLATE PROCESS', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(67, '3384', 'ANDRIANA', 'PLANT SERVICE', 'MAINTENANCE', 'TOOLING-1 PLATE PROCESS', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(68, '3479', 'WAHYU NUR FAUZIA', 'PLANT SERVICE', 'MAINTENANCE', 'TOOLING-2 ASSEMBLING', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(69, '3693', 'IKRAR SATRIA HARTAWAN', 'PLANT SERVICE', 'MAINTENANCE', 'TOOLING-1 PLATE PROCESS', 'KASUBSIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(70, '3062', 'DWITA KHAENDY PUTRI ', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(71, '1514', 'DIDIK RUSDIKA', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(72, '2186', 'CHRISMAWAN BAYUAJI ', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(73, '2872', 'IMAN ARI WIBOWO ', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(74, '2517', 'MUHTAR INDRA PRABOWO', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(75, '4171', 'MUHAMMAD FARRAZ ABRAR', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(76, '1637', 'AHMAD FADILAH', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tabel_log`
+--
+
+CREATE TABLE `tabel_log` (
+  `log_id` int(11) NOT NULL,
+  `subcont_id` int(11) NOT NULL,
+  `log_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `log_user` varchar(255) NOT NULL,
+  `log_tipe` int(11) NOT NULL,
+  `log_desc` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -152,9 +205,80 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `upass`, `akses`, `id_pengguna`, `created_at`, `update_at`) VALUES
-(1, 'nonik', '123123', 1, 1, '2023-01-06 07:41:53', '2023-01-06 07:46:32'),
-(2, 'Jerry', '2122', 2, 2, '2023-01-06 07:41:53', '2023-01-09 06:07:47'),
-(3, 'wawan', '9999', 3, 3, '2023-01-30 06:09:36', NULL);
+(1, 'NSC2819', '123123', 2, 1, '2023-01-06 07:41:53', '2023-03-08 09:09:57'),
+(2, 'AZAE1617', '2122', 2, 2, '2023-01-06 07:41:53', '2023-03-08 09:08:21'),
+(3, 'RSL496', '9999', 3, 3, '2023-01-30 06:09:36', '2023-03-08 09:08:49'),
+(4, 'DRU731', 'cek22', 2, 5, '2023-03-07 07:19:39', '2023-03-08 09:10:03'),
+(5, 'SGY1625', 'cek33', 2, 4, '2023-03-07 07:19:39', '2023-03-08 09:09:18'),
+(6, 'MLZ0412', '12345', 1, 7, '2023-03-08 09:05:43', NULL),
+(7, 'NYN485', '12345', 1, 8, '2023-03-08 09:05:43', NULL),
+(8, 'MJO517', '12345', 1, 9, '2023-03-08 09:05:43', NULL),
+(9, 'SUU563', '12345', 1, 10, '2023-03-08 09:05:43', NULL),
+(10, 'CNU1095', '12345', 1, 11, '2023-03-08 09:05:43', NULL),
+(11, 'RWN1257', '12345', 1, 12, '2023-03-08 09:05:43', NULL),
+(12, 'ARA1361', '12345', 1, 13, '2023-03-08 09:05:43', NULL),
+(13, 'EAM1391', '12345', 1, 14, '2023-03-08 09:05:43', NULL),
+(14, 'AAP1618', '12345', 1, 15, '2023-03-08 09:05:43', NULL),
+(15, 'EAK1697', '12345', 1, 16, '2023-03-08 09:05:43', NULL),
+(16, 'NAN1815', '12345', 1, 17, '2023-03-08 09:05:43', NULL),
+(17, 'ASY1971', '12345', 1, 18, '2023-03-08 09:05:43', NULL),
+(18, 'PFY2331', '12345', 1, 19, '2023-03-08 09:05:43', NULL),
+(19, 'LUS2346', '12345', 1, 20, '2023-03-08 09:05:43', NULL),
+(20, 'KRI2526', '12345', 1, 21, '2023-03-08 09:05:43', NULL),
+(21, 'CTP2593', '12345', 1, 22, '2023-03-08 09:05:43', NULL),
+(22, 'ENU2644', '12345', 1, 23, '2023-03-08 09:05:43', NULL),
+(23, 'IAF2649', '12345', 1, 24, '2023-03-08 09:05:43', NULL),
+(24, 'SHE2862', '12345', 1, 25, '2023-03-08 09:05:43', NULL),
+(25, 'FFU2863', '12345', 1, 26, '2023-03-08 09:05:43', NULL),
+(26, 'DLN2939', '12345', 1, 27, '2023-03-08 09:05:43', NULL),
+(27, 'AMA3012', '12345', 1, 28, '2023-03-08 09:05:43', NULL),
+(28, 'PHS3014', '12345', 1, 29, '2023-03-08 09:05:43', NULL),
+(29, 'AMU3305', '12345', 1, 30, '2023-03-08 09:05:43', NULL),
+(30, 'AAV3346', '12345', 1, 31, '2023-03-08 09:05:43', NULL),
+(31, 'SJS3476', '12345', 1, 32, '2023-03-08 09:05:43', NULL),
+(32, 'KBA3477', '12345', 1, 33, '2023-03-08 09:05:43', NULL),
+(33, 'RSN3584', '12345', 1, 34, '2023-03-08 09:05:43', NULL),
+(34, 'BPU3651', '12345', 1, 35, '2023-03-08 09:05:43', NULL),
+(35, 'RPR3658', '12345', 1, 36, '2023-03-08 09:05:43', NULL),
+(36, 'RAY3659', '12345', 1, 37, '2023-03-08 09:05:43', NULL),
+(37, 'KHA3688', '12345', 1, 38, '2023-03-08 09:05:43', NULL),
+(38, 'KDU3764', '12345', 1, 39, '2023-03-08 09:05:43', NULL),
+(39, 'YSP0461', '12345', 1, 40, '2023-03-08 09:05:43', NULL),
+(40, 'NRS0481', '12345', 1, 41, '2023-03-08 09:05:43', NULL),
+(41, 'PWD0510', '12345', 1, 42, '2023-03-08 09:05:43', NULL),
+(42, 'NAL0523', '12345', 1, 43, '2023-03-08 09:05:43', NULL),
+(43, 'ESU0524', '12345', 1, 44, '2023-03-08 09:05:43', NULL),
+(44, 'MUS0546', '12345', 1, 45, '2023-03-08 09:05:43', NULL),
+(45, 'MUS0551', '12345', 1, 46, '2023-03-08 09:05:43', NULL),
+(46, 'PJO0559', '12345', 1, 47, '2023-03-08 09:05:43', NULL),
+(47, 'LSN0569', '12345', 1, 48, '2023-03-08 09:05:43', NULL),
+(48, 'YNT0584', '12345', 1, 49, '2023-03-08 09:05:43', NULL),
+(49, 'MSR0639', '12345', 1, 50, '2023-03-08 09:05:43', NULL),
+(50, 'ASU645', '12345', 1, 51, '2023-03-08 09:05:43', NULL),
+(51, 'ASU676', '12345', 1, 52, '2023-03-08 09:05:43', NULL),
+(52, 'ARI692', '12345', 1, 53, '2023-03-08 09:05:43', NULL),
+(53, 'IIM0698', '12345', 1, 54, '2023-03-08 09:05:43', NULL),
+(54, 'JSP0715', '12345', 1, 55, '2023-03-08 09:05:43', NULL),
+(55, 'DMU1030', '12345', 1, 57, '2023-03-08 09:05:43', NULL),
+(56, 'FAH1139', '12345', 1, 58, '2023-03-08 09:05:43', NULL),
+(57, 'YAP2185', '12345', 1, 59, '2023-03-08 09:05:43', NULL),
+(58, 'WAD2441', '12345', 1, 60, '2023-03-08 09:05:43', NULL),
+(59, 'ACN2523', '12345', 1, 61, '2023-03-08 09:05:43', NULL),
+(60, 'BSU2524', '12345', 1, 62, '2023-03-08 09:05:43', NULL),
+(61, 'DPR2535', '12345', 1, 63, '2023-03-08 09:05:43', NULL),
+(62, 'RTO2846', '12345', 1, 65, '2023-03-08 09:05:43', NULL),
+(63, 'FSE3368', '12345', 1, 66, '2023-03-08 09:05:43', NULL),
+(64, 'ADR3384', '12345', 1, 67, '2023-03-08 09:05:43', NULL),
+(65, 'WNF3479', '12345', 1, 68, '2023-03-08 09:05:43', NULL),
+(66, 'ISH3693', '12345', 1, 69, '2023-03-08 09:05:43', NULL),
+(67, 'DKP3062', '12345', 1, 70, '2023-03-08 09:05:43', NULL),
+(68, 'DRU1514', '12345', 1, 71, '2023-03-08 09:05:43', NULL),
+(69, 'CBA2186', '12345', 1, 72, '2023-03-08 09:05:43', NULL),
+(70, 'IAW2872', '12345', 1, 73, '2023-03-08 09:05:43', NULL),
+(71, 'MIP2517', '12345', 1, 74, '2023-03-08 09:05:43', NULL),
+(72, 'MFA4171', '12345', 1, 75, '2023-03-08 09:05:43', NULL),
+(73, 'AFA1637', '12345', 1, 76, '2023-03-08 09:05:43', NULL),
+(74, 'IPR3913', '12345', 1, 6, '2023-03-08 09:05:43', NULL);
 
 --
 -- Indexes for dumped tables
@@ -180,6 +304,13 @@ ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id_krywn`);
 
 --
+-- Indeks untuk tabel `tabel_log`
+--
+ALTER TABLE `tabel_log`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `constraint_subcont` (`subcont_id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -194,25 +325,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `gambar`
 --
 ALTER TABLE `gambar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `iks`
 --
 ALTER TABLE `iks`
-  MODIFY `id_subcont` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_subcont` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_krywn` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_krywn` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
+-- AUTO_INCREMENT untuk tabel `tabel_log`
+--
+ALTER TABLE `tabel_log`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -223,6 +360,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `gambar`
   ADD CONSTRAINT `constraint_gambar` FOREIGN KEY (`subcont_id`) REFERENCES `iks` (`id_subcont`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tabel_log`
+--
+ALTER TABLE `tabel_log`
+  ADD CONSTRAINT `constraint_subcont` FOREIGN KEY (`subcont_id`) REFERENCES `iks` (`id_subcont`);
 
 --
 -- Ketidakleluasaan untuk tabel `users`

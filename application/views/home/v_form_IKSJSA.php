@@ -443,25 +443,25 @@
                                                         <h5 class="box-title" style="color: black;">SYARAT WAJIB KATEGORI MELIBATKAN PANAS</h5>
                                                         <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib tersedia APAR" id="conditional-1" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib tersedia APAR" id="conditional-1">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-1">
                                                                 Wajib tersedia APAR
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib proteksi area kerja" id="conditional-2" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib proteksi area kerja" id="conditional-2">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-2">
                                                                 Wajib dipasang pembatas (safety line)/ Cover area kerja 
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Bebas Area bahan mudah terbakar" id="conditional-3" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Bebas Area bahan mudah terbakar" id="conditional-3">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-3">
                                                                 Area bebas dari cairan, debu, kain, B3 yang mudah terbakar
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lindungi dengan TERPAL" id="conditional-4" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lindungi dengan TERPAL" id="conditional-4">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-4">
                                                                 Singkirkan benda yang mudah terbakar / lindungi dengan TERPAL 
                                                             </label>
@@ -483,19 +483,19 @@
                                                         <h5 class="box-title" style="color: black;">SYARAT WAJIB RUANG TERBATAS</h5>
                                                         <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-5" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-5">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-5">
                                                                 Minimal melibatkan 2 orang pekerja
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib pastikan oksigen tersedia" id="conditional-6" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Wajib pastikan oksigen tersedia" id="conditional-6">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-6">
                                                                 Wajib memastikan ketersediaan oksigen
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="atur waktu maksimal kerja" id="conditional-7" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="atur waktu maksimal kerja" id="conditional-7">
                                                             <label class="form-check-label" style="color: black;"  for="conditional-7">
                                                                 Lakukan pengaturan waktu kerja maksimal di area terbatas
                                                             </label>
@@ -517,19 +517,19 @@
                                                         <h5 class="box-title" style="color: black;">SYARAT WAJIB LIBATKAN KETINGGIAN</h5>
                                                         <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-8" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-8" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-8">
                                                                 Minimal melibatkan 2 orang pekerja
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek scaffolding/tangga" id="conditional-9" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek scaffolding/tangga" id="conditional-9" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-9">
                                                                 Lakukan pengecekan alat kerja : scaffolding/ tangga.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek body harness dan helm" id="conditional-10" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="cek body harness dan helm" id="conditional-10" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-10">
                                                                 Lakukan pengecekan body harness dan helm 
                                                             </label>
@@ -551,31 +551,31 @@
                                                         <h5 class="box-title" style="color: black;">SYARAT WAJIB LIBATKAN LISTRIK TEGANGAN MENENGAH TINGGI</h5>
                                                         <p style="color: red;">Ceklis Semua Syarat Wajib dan Wajib Melakukan Safety Induction dengan PIC EHS</p>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-11" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Min 2 Pekerja" id="conditional-11" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-11">
                                                                 Minimal melibatkan 2 orang pekerja.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="PIC memiliki sertifikat Teknisi K3 Listrik" id="conditional-12" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="PIC memiliki sertifikat Teknisi K3 Listrik" id="conditional-12" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-12">
                                                                 PIC harus mempunyai sertifikat Teknisi K3 Listrik.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area memiliki penerangan yang cukup" id="conditional-13" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area memiliki penerangan yang cukup" id="conditional-13" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-13">
                                                                 Area kerja harus mempunyai penerangan yang cukup.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area bebas genangan air" id="conditional-14" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Area bebas genangan air" id="conditional-14" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-14">
                                                                 Area kerja harus bebas genangan air.
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lengkap dengan LOTO sesuai Standar" id="conditional-15" required="required">
+                                                            <input class="form-check-input" type="checkbox" name="syarat_wajib[]" value="Lengkap dengan LOTO sesuai Standar" id="conditional-15" >
                                                             <label class="form-check-label" style="color: black;"  for="conditional-15">
                                                                 Pastikan dilengkapi LOTO sesuai standar.
                                                             </label>

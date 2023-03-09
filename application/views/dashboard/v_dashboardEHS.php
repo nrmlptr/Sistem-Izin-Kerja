@@ -45,6 +45,7 @@
               <th scope="col" colspan="4" style="color: black;">JSA</th>
               <th scope="col" rowspan="2" style="color: black;">Gambar</th>
               <th scope="col" rowspan="2" style="color: black;">Status</th>
+              <th scope="col" rowspan="2" style="color: black;">Activity User</th>
               <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th>
               <th scope="col" rowspan="2" style="color: black;">Action</th>
             </tr>
@@ -105,11 +106,40 @@
                 <?php } ?>
               </td>
               <td style="color: black;">
-                <?= $data->status?>
+                <?php if($data->status == 'rejected'){?>
+                  <span class="badge badge-danger">Rejected</span>
+                <?php }elseif($data->status == 'approved'){?>
+                  <span class="badge badge-success">Approved</span>
+                <?php }elseif($data->status == 'checked'){?>
+                  <span class="badge badge-info">Checked</span>
+                <?php }elseif($data->status == 'draft'){?>
+                  <span class="badge badge-warning">Draft</span>
+                <?php }?>
                 <?php if($data->kategori_pekerjaan != 'umum'){?>
                   <br>
                   <span style="color: green;">Perlu Safety Induction dengan EHS</span>
                 <?php } ?>
+              </td>
+              <td style="color: black;">
+                <?php 
+                                
+                  $this->load->model('M_subcont');
+                  $log_activity = $this->M_subcont->getLogIKS($data->id_subcont);
+                  // var_dump($log_activity);die;
+                    
+                  foreach($log_activity as $row){ 
+                  // var_dump($row);die;
+                ?>
+                  <?php if($data->status == 'checked'){
+                      echo $row->log_desc .''.$row->log_user;
+                      // echo $data->status .'  by  '. $row->log_user;
+                  }elseif($data->status == 'approved'){
+                      echo $row->log_desc .''.$row->log_user;
+                      // echo $data->status .'  by  '. $row->log_user;
+                  }else{
+                      echo $data->status;
+                  }?>
+                <?php } ?> 
               </td>
               <td style="color: black;"><?php if($data->status == 'checked'){?>
                     <a href="<?php echo base_url('Dashboard/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-warning">

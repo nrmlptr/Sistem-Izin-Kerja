@@ -73,6 +73,7 @@
 		public function konfirm_gambar(){
 			$this->load->model('M_subcont');
 			$data['list_subcont'] = $this->M_subcont->get_subcont();
+			// $data['log_activity'] = $this->M_subcont->getLogIKS();
 			//var_dump($data['list_subcont']);die;
 
 			$this->load->view('template/header');
@@ -148,6 +149,9 @@
 			);
 
 			$updateCheked = $this->M_subcont->updateChecked($uploadData['id_subcont'], $data2);
+			//contoh panggil helper log
+            helper_log("update", "PIC Project by ");
+            //silahkan di ganti2 aja kalimatnya
 
 			if($updateCheked > 0){
 				redirect('Dashboard/konfirm_gambar');
@@ -187,9 +191,18 @@
 		//buat metod yg berfungsi untuk memproses ceklis yg sudah disimpan oleh EHS
 		public function proses_setujuiForm(){
 
+			if($_POST['status'] == 'rejected'){
+				$data['id_subcont'] = $this->input->post('id_subcont');
+				$data['rejected'] = $this->input->post('status');
+			}elseif($_POST['status'] == 'approved'){
+				$data['id_subcont'] = $this->input->post('id_subcont');
+				$data['approved'] = $this->input->post('status');
+			}
+
+			// var_dump($_POST['status']);die;
 			// var_dump ($this->input->post('status'));die;
-			$data['id_subcont'] = $this->input->post('id_subcont');
-			$data['approved'] = $this->input->post('status');
+			// $data['id_subcont'] = $this->input->post('id_subcont');
+			// $data['approved'] = $this->input->post('status');
 
 			$this->load->model('M_subcont');
 			$this->M_subcont->proses_setujuiform($data);

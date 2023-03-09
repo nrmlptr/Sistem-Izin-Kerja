@@ -24,6 +24,8 @@
                             <th scope="col" style="color: black;">Jumlah Pekerja Subcont</th>
                             <th scope="col" style="color: black;">PIC PT CBI</th>
                             <th scope="col" style="color: black;">Status Data</th>
+                            <th scope="col" style="color: black;">Kondisi Data</th>
+                            <th scope="col" style="color: black;">Konfirmasi PIC EHS</th>
                             <th scope="col" style="color: black;">Action</th>
                         </tr>
                     </thead>
@@ -48,6 +50,24 @@
                                 }else{
                                     echo '<span style="color: blue;">Tidak Perlu Safety Induction</span>';
                                 }?></td>
+                                <td>
+                                    <?php if($data->status == 'rejected'){?>
+                                        <span class="badge badge-danger">Rejected</span>
+                                    <?php }elseif($data->status == 'approved'){?>
+                                        <span class="badge badge-success">Approved</span>
+                                    <?php }elseif($data->status == 'checked'){?>
+                                        <span class="badge badge-info">Checked</span>
+                                    <?php }elseif($data->status == 'draft'){?>
+                                        <span class="badge badge-warning">Draft</span>
+                                    <?php }?>
+                                </td>
+                                <td>
+                                    <?php if($data->require_ehs == '' && $data->kategori_pekerjaan != 'umum'){?>
+                                        <span style="color: red;">Belum Melakukan Safety Induction</span>
+                                    <?php }elseif($data->require_ehs == 'briefing'){?>
+                                        <span style="color: blue;">Sudah Melakukan Safety Induction</span>
+                                    <?php }?>
+                                </td>
                                 <td style="color: black;">
                                     <a href="<?php echo base_url('Dashboard/cekSecurity/'.$data->id_subcont);?>" class="btn btn-success">
                                         <span></span>View

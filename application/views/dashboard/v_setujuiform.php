@@ -13,9 +13,13 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="status" name="status">
+                            <input type="checkbox" class="form-check-input" id="status" name="status" value="approved">
                             <input type="hidden" name="id_subcont" value="<?php echo $sbc[0]->id_subcont?>">
                             <label class="form-check-label" for="status" style="color: black;">Setujui Izin Kerja Subcont</label>
+                            <br>
+                            <input type="checkbox" class="form-check-input" id="status2" name="status" value="rejected">
+                            <input type="hidden" name="id_subcont" value="<?php echo $sbc[0]->id_subcont?>">
+                            <label class="form-check-label" for="status2" style="color: black;">Tolak Izin Kerja Subcont</label>
                         </div>    
                     </div>
                 </div>

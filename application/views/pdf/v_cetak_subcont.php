@@ -164,12 +164,37 @@
         </tr>
         <tr style="margin: 5px">
             <td style="border: 1px solid black;"><b style="color: blue;"> Status </b></td>
-            <td style="border: 1px solid black;"><?php echo $sbc[0]->status?> </td>
+            <td style="border: 1px solid black;"><?php echo $sbc[0]->status?></td>
+        </tr>
+        <tr style="margin: 5px">
+            <td style="border: 1px solid black;"><b style="color: brown;"> Activity User </b></td>
+            <td style="border: 1px solid black;">
+                <?php 
+                                
+                    $this->load->model('M_subcont');
+                    $log_activity = $this->M_subcont->getLogIKS($sbc[0]->id_subcont);
+                    // var_dump($log_activity);die;
+
+                    foreach($log_activity as $row){ 
+                    // $log_activity = $this->M_subcont->getLogIKS($row->iks_id);
+                    
+                ?>
+                    <?php if($sbc[0]->status == 'checked'){
+                        echo $row->log_desc .''.$row->log_user;
+                        // echo $data->status .'  by  '. $row->log_user;
+                    }elseif($sbc[0]->status == 'approved'){
+                        echo $row->log_desc .''.$row->log_user;
+                        // echo $data->status .'  by  '. $row->log_user;
+                    }else{
+                        echo $sbc[0]->status;
+                    }?> 
+                <?php } ?>
+            </td>
         </tr>
         <tr style="margin: 5px">
             <td style="border: 1px solid black;" colspan="2" align="center">
                 <?php if($sbc[0]->kategori_pekerjaan != 'umum'){?>
-                    <span style="color: green;">Catatan : Perlu Diadakan Briefing dengan EHS</span>
+                    <span style="color: green;">Catatan : Perlu Diadakan Safety Induction dengan EHS</span>
                 <?php } ?>
             </td>
         </tr>
@@ -184,9 +209,56 @@
 <p>
     <table width="100%">
         <tr>
-            <td align="center">Dibuat oleh<br><br><br><br><br><u>PIC SUBCONT</u><br></td>
-            <td align="center">Diperiksa oleh<br><br><br><br><br><u>PIC PT CBI</u><br></td>
-            <td align="center">Diketahui oleh<br><br><br><br><br><u>PIC EHS</u><br></td>
+            <td align="center">Dibuat oleh<br><br>
+                Tanggal Pengajuan<br><?= $sbc[0]->tanggal_pengajuan?>
+                <br><br><br><u><?php echo $sbc[0]->nama_perusahaan?></u><br>
+            </td>
+            <td align="center">Diperiksa oleh<br><br>
+                <?php 
+                                
+                    $this->load->model('M_subcont');
+                    $log_activity = $this->M_subcont->getLogIKS($sbc[0]->id_subcont);
+                    // var_dump($log_activity);die;
+
+                    foreach($log_activity as $row){ 
+                    // $log_activity = $this->M_subcont->getLogIKS($row->iks_id);
+                    
+                ?>
+                    <?php if($sbc[0]->status == 'approved' && $row->log_tipe == '2'){
+                        echo $sbc[0]->status.'<br>'. $row->log_time;
+                        // echo $data->status .'  by  '. $row->log_user;
+                    }?> 
+                <?php } ?>
+                <br><br><br><u><?php echo $sbc[0]->pic_cbi?></u><br>
+            </td>
+            <td align="center">Diketahui oleh<br><br>
+                <?php 
+                    $this->load->model('M_subcont');
+                    $log_activity = $this->M_subcont->getLogIKS($sbc[0]->id_subcont);
+                    // var_dump($log_activity);die;
+
+                    foreach($log_activity as $row){ 
+                    // $log_activity = $this->M_subcont->getLogIKS($row->iks_id);
+                    
+                ?>
+                    <?php if($sbc[0]->status == 'approved' && $row->log_tipe == '3'){
+                        echo $sbc[0]->status.'<br>'. $row->log_time;
+                        // echo $data->status .'  by  '. $row->log_user;
+                    }?> 
+                <?php } ?>
+                <br><br><br><u>
+                <?php 
+                                    
+                    $this->load->model('M_subcont');
+                    $log_activity = $this->M_subcont->getLogIKS($sbc[0]->id_subcont);
+                    // var_dump($log_activity);die;
+
+                    foreach($log_activity as $row){ 
+                    // $log_activity = $this->M_subcont->getLogIKS($row->iks_id);
+                    
+                ?> 
+                <?php } echo $row->log_user?></u><br>
+            </td>
         </tr>    
     </table>
 </p>

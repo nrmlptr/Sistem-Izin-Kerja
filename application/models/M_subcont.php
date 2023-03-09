@@ -5,9 +5,19 @@
         
         //metode yang dibuat untuk mengambil data dari tabel iks pada db secara keseluruhan
         public function get_subcont(){
-
+            $this->db->order_by('id_subcont', 'DESC');
             $query = $this->db->get('iks');
             return $query->result();  
+        }
+
+        public function getLogIKS($subcont_id){
+            $this->db->select('log_time, log_user, log_tipe, log_desc');
+            $this->db->from('tabel_log');
+            $this->db->where('subcont_id', $subcont_id);
+            $query = $this->db->get();
+            return $query->result();
+            // $query = $this->db->get('tabel_log');
+            // return $query->result();  
         }
 
         //buat metode yg berfungsi untuk mendapatkan data berdasarkan id yang ada
@@ -66,14 +76,26 @@
         //================================================================================================================================================================
         //buat metod baru untuk query ubah status dari checked jadi approved
         public function proses_setujuiform($data){
+            
             $data = array(
-                'status' => 'approved',
+                'status' => $_POST['status'],
                 'id_subcont' => $data['id_subcont']
             );
-
+            
+            // var_dump($data);die;
             $this->db->where('id_subcont', $data['id_subcont']);
             $run = $this->db->update('iks', $data);
 
+           //contoh panggil helper log
+           if($_POST['status'] == 'approved'){
+            helper_log("approved", "|| PIC EHS by ");
+           }else{
+            helper_log("rejected", "|| PIC EHS by ");
+           };
+          
+
+           
+           //silahkan di ganti2 aja kalimatnya
             // var_dump($data);die;
             if($run){
                 redirect('Dashboard/konfirm_form');

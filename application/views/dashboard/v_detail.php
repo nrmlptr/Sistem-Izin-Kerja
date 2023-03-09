@@ -38,8 +38,30 @@
                                 <p style="color: black;">Jenis Pekerjaan                      : <?= $sbc[0]->jenis_pekerjaan;?></p>
                                 <p style="color: black;">Kategori Pekerjaan                   : <?= $sbc[0]->kategori_pekerjaan;?></p>
                                 <p style="color: black;">Syarat Wajib                         : <?= $sbc[0]->syarat_wajib;?></p>
-                                <p style="color: black;">Validasi Data                        : <?= $sbc[0]->validasi;?></p>
+                                <!-- <p style="color: black;">Validasi Data                        : <?= $sbc[0]->validasi;?></p> -->
                                 <p style="color:royalblue;"><b>Status   : <?= $sbc[0]->status;?></b><br></p>
+                                <p style="color: black;">Activity User : 
+                                    <?php 
+                                
+                                        $this->load->model('M_subcont');
+                                        $log_activity = $this->M_subcont->getLogIKS($sbc[0]->id_subcont);
+                                        // var_dump($log_activity);die;
+
+                                        foreach($log_activity as $row){ 
+                                        // $log_activity = $this->M_subcont->getLogIKS($row->iks_id);
+                                        
+                                    ?>
+                                        <?php if($sbc[0]->status == 'checked'){
+                                            echo $row->log_desc .''.$row->log_user;
+                                            // echo $data->status .'  by  '. $row->log_user;
+                                        }elseif($sbc[0]->status == 'approved'){
+                                            echo $row->log_desc .''.$row->log_user;
+                                            // echo $data->status .'  by  '. $row->log_user;
+                                        }else{
+                                            echo $sbc[0]->status;
+                                        }?> 
+                                    <?php } ?>
+                                </p>
                                 <?php if($sbc[0]->kategori_pekerjaan != 'umum'){?>
                                     <span style="color: red;"><u>Catatan : Perlu Diadakan Safety Induction dengan EHS</u></span>
                                 <?php } ?>
