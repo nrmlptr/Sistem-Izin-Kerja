@@ -10,6 +10,17 @@
             return $query->result();  
         }
 
+        public function getdataAktif(){
+            $current_date = date("Y-m-d"); //buat ambil tanggal saat ini nantinya di bandingin sama tanggal di data
+
+            $this->db->select('*');
+            $this->db->from('iks');
+            // $this->db->order_by('id_subcont', 'DESC');
+            $this->db->where('iks.wkt_mulai',$current_date); //select agar data yang muncul hanya data yang sesuai dengan inputan tanggal saat tersebut
+            $query = $this->db->get();
+            return $query->result();  
+        }
+
         public function getLogIKS($subcont_id){
             $this->db->select('log_time, log_user, log_tipe, log_desc');
             $this->db->from('tabel_log');
@@ -94,7 +105,6 @@
            };
           
 
-           
            //silahkan di ganti2 aja kalimatnya
             // var_dump($data);die;
             if($run){
@@ -134,6 +144,163 @@
 
 
 
+//====================================================== GRAFIK SETTING  =============================================
+        public function getdataTanggal(){
+            $this->db->select('*');
+            $this->db->from('iks');
+            $this->db->distinct('tanggal_pengajuan');
+            $this->db->group_by('tanggal_pengajuan'); // menambahkan group by
+            $query = $this->db->get();
+        
+            $dataTanggal = array();
+            foreach ($query->result() as $row) {
+                $dataTanggal[] = array(
+                    // 'material_id' => $row->material_id,
+                    'tanggal_pengajuan' => $row->tanggal_pengajuan
+                );
+            }
+        
+            // var_dump($dataTanggal);die;
+            return $dataTanggal;
+        }
+
+        // masih revisi karena kategori belum di case when
+        // function getdataGrafik() {
+        //     $this->db->select('tanggal_pengajuan, kategori_pekerjaan, COUNT(*) as jumlah');
+        //     $this->db->from('iks');
+        //     $this->db->group_by('tanggal_pengajuan, kategori_pekerjaan');
+        //     $query = $this->db->get();
+        
+        //     $data = array();
+        //     foreach ($query->result() as $row) {
+        //         $data[] = array(
+        //             'kategori_pekerjaan' => $row->kategori_pekerjaan,
+        //             'tanggal_pengajuan' => $row->tanggal_pengajuan,
+        //             'jumlah' => $row->jumlah
+        //         );
+        //     }
+        
+        //     return $data;
+        // }
+
+        //data tampil semua bulan
+        function getdataGrafik(){
+            $bulan_ini = date('Y-m'); // mendapatkan bulan saat ini dalam format YYYY-MM
+            $this->db->select("tanggal_pengajuan, 
+                       CASE 
+                           WHEN kategori_pekerjaan = 'umum' THEN 'umum'
+                           WHEN kategori_pekerjaan LIKE '%panas%' THEN 'libatkan panas'
+                           WHEN kategori_pekerjaan LIKE '%ketinggian%' THEN 'libatkan ketinggian'
+                           WHEN kategori_pekerjaan LIKE '%ruang terbatas%' THEN 'libatkan ruang terbatas'
+                           WHEN kategori_pekerjaan LIKE '%listrik tegangan tinggi%' THEN 'libatkan listrik tegangan tinggi'
+                           ELSE kategori_pekerjaan 
+                       END AS kategori_pekerjaan, 
+                       COUNT(*) as jumlah"
+                    );
+            $this->db->from('iks');
+            $this->db->where('tanggal_pengajuan >=', $bulan_ini.'-01'); // memfilter data mulai dari tanggal 1 bulan ini
+            $this->db->where('tanggal_pengajuan <', date('Y-m-d', strtotime($bulan_ini.'+1 month')).'-01'); // memfilter data sampai dengan tanggal 1 bulan depan
+            $this->db->group_by('tanggal_pengajuan, kategori_pekerjaan');
+            $query = $this->db->get();
+        
+            $data = array();
+            foreach ($query->result() as $row) {
+                $data[] = array(
+                    'kategori_pekerjaan' => $row->kategori_pekerjaan,
+                    'tanggal_pengajuan' => $row->tanggal_pengajuan,
+                    'jumlah' => $row->jumlah
+                );
+            }
+        
+            return $data;
+        }   
+
+        function getDetailGrafik($bulan)
+        {
+            $this->db->select("tanggal_pengajuan, 
+                CASE 
+                    WHEN kategori_pekerjaan = 'umum' THEN 'umum'
+                    WHEN kategori_pekerjaan LIKE '%panas%' THEN 'libatkan panas'
+                    WHEN kategori_pekerjaan LIKE '%ketinggian%' THEN 'libatkan ketinggian'
+                    WHEN kategori_pekerjaan LIKE '%ruang terbatas%' THEN 'libatkan ruang terbatas'
+                    WHEN kategori_pekerjaan LIKE '%listrik tegangan tinggi%' THEN 'libatkan listrik tegangan tinggi'
+                    ELSE kategori_pekerjaan 
+                END AS kategori_pekerjaan, 
+                COUNT(*) as jumlah"
+            );
+            $this->db->from('iks');
+            $this->db->where('MONTH(tanggal_pengajuan)', date('m', strtotime($bulan))); // memfilter data berdasarkan bulan
+            $this->db->group_by('tanggal_pengajuan, kategori_pekerjaan');
+            $query = $this->db->get();
+
+            $data = array();
+            foreach ($query->result() as $row) {
+                $data[] = array(
+                    'kategori_pekerjaan' => $row->kategori_pekerjaan,
+                    'tanggal_pengajuan' => $row->tanggal_pengajuan,
+                    'jumlah' => $row->jumlah
+                );
+            }
+
+            return $data;
+        }
+
+
+        function getforTabel(){
+            $this->db->select('MONTH(tanggal_pengajuan) AS bulan, 
+                SUM(CASE WHEN status = "approved" THEN 1 ELSE 0 END) AS jumlah_approved, 
+                SUM(CASE WHEN status = "rejected" THEN 1 ELSE 0 END) AS jumlah_rejected, 
+                COUNT(*) AS jumlah_total');
+            $this->db->from('iks');
+            $this->db->group_by('bulan');
+            $query = $this->db->get();
+
+            $data = array();
+            foreach ($query->result() as $row) {
+                $nama_bulan = date('F', mktime(0, 0, 0, $row->bulan, 1, 2000));
+                $data[] = array(
+                    'bulan' => $nama_bulan,
+                    'jumlah_approved' => $row->jumlah_approved,
+                    'jumlah_rejected' => $row->jumlah_rejected,
+                    'jumlah_total' => $row->jumlah_total
+                );
+            }
+
+
+            return $data;
+
+        }
+
+        function getfordetailTabel(){
+            $this->db->select("MONTH(tanggal_pengajuan) as bulan,
+                SUM(CASE WHEN kategori_pekerjaan = 'umum' THEN 1 ELSE 0 END) as umum,
+                SUM(CASE WHEN kategori_pekerjaan LIKE '%ketinggian%' THEN 1 ELSE 0 END) as libatkan_ketinggian,
+                SUM(CASE WHEN kategori_pekerjaan LIKE '%panas%' THEN 1 ELSE 0 END) as libatkan_panas,
+                SUM(CASE WHEN kategori_pekerjaan LIKE '%ruang terbatas%' THEN 1 ELSE 0 END) as libatkan_ruang_terbatas,
+                SUM(CASE WHEN kategori_pekerjaan LIKE '%listrik tegangan tinggi%' THEN 1 ELSE 0 END) as libatkan_listrik_tegangan_tinggi
+            ");
+            $this->db->from('iks');
+            // $this->db->where('MONTH(tanggal_pengajuan)', $id_bulan);
+            $this->db->group_by('bulan');
+            $this->db->order_by('bulan', 'asc');
+            $query = $this->db->get();
+        
+            $data = array();
+            foreach ($query->result() as $row) {
+                $nama_bulan = date('F', mktime(0, 0, 0, $row->bulan, 1, 2000));
+                $data[] = array(
+                    // 'id' => $row->id,
+                    'bulan' => $nama_bulan,
+                    'umum' => $row->umum,
+                    'libatkan_ketinggian' => $row->libatkan_ketinggian,
+                    'libatkan_panas' => $row->libatkan_panas,
+                    'libatkan_ruang_terbatas' => $row->libatkan_ruang_terbatas,
+                    'libatkan_listrik_tegangan_tinggi' => $row->libatkan_listrik_tegangan_tinggi
+                );
+            }
+        
+            return $data;
+        }        
     }
 
 ?>

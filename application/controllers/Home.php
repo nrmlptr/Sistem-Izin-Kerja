@@ -12,7 +12,7 @@
 			$this->load->view('template/footer');
 		}
 
-		//==================================================================================================================
+		//=====================================================================================================================================
 		//buat metod untuk tampilkan form IKSJA
 		public function form_IKSJSA(){
 			$x['no_regis']=$this->M_home->get_noregis();
@@ -23,7 +23,7 @@
 			// $this->load->view('template/footer');
 		}
 
-		//==================================================================================================================
+		//======================================================================================================================================
 
 		//buat metode untuk proses simpan
 		public function simpan_data(){
@@ -105,6 +105,46 @@
 			// $this->template->load('template', 'berobat/v_antrian', $this->data);
 			// $this->load->view('home/v_noreg', $this->data);
 			$this->load->view('home/v_noreg');
+		}
+
+
+		//============================================================buat fungsi untuk tracking data izin kerja tanpa login ===================
+		public function traceIK(){
+			// $this->load->model('M_subcont');
+			// $data['dataIK'] = $this->M_subcont->get_subcont();
+			// // var_dump($data['dataIK']);die;
+
+			// $this->load->view('template/headers');
+			// $this->load->view('dashboard/v_trace', $data);
+			// $this->load->view('template/footer');
+
+			$this->load->model('M_home');
+			$keyword = $this->input->get('keyword');
+			$data = $this->M_home->ambil_data($keyword);
+			$data = array(
+				'keyword'	=> $keyword,
+				'data'		=> $data
+			);
+
+			// var_dump($data);die;
+
+			$this->load->view('template/headers');
+			$this->load->view('dashboard/v_trace', $data);
+			$this->load->view('template/footer');
+			// $this->load->view('search',$data);
+		}
+
+		//buat fungsi metode untuk lihat detail data iks beserta jsa pada role subcont tanpa perlu login
+		public function detailTrace(){
+			$this->load->view('template/headers');
+
+			$id_subcont = $this->uri->segment(3);
+			$this->load->model("M_subcont");
+			$data['ik']=$this->M_subcont->getSubcontById($id_subcont);
+
+			// var_dump($data['ik']);die;
+			$this->load->view('dashboard/v_detailTrace', $data);
+			$this->load->view('template/footer');
 		}
 		
 

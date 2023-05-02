@@ -35,9 +35,9 @@
 
 				//buat kondisi jika berhasil login akan pergi kemana
 				if($getUser->akses == 1){
-				    redirect('Dashboard/konfirm_gambar');
+				    redirect('Dashboard/grafikData');
 				}elseif($getUser->akses == 2){
-				    redirect('Dashboard/konfirm_form');
+				    redirect('Dashboard/grafikData');
 				}elseif($getUser->akses == 3){
 				    redirect('Dashboard/konfirm_subcont');
 				}

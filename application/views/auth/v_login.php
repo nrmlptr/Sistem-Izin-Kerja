@@ -60,9 +60,9 @@
                                             <a href="<?php echo base_url('Home/form_IKSJSA');?>" class="btn btn-google btn-user btn-block">
                                                 <i></i>Izin Kerja Subcont
                                             </a>
-                                            <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                            </a> -->
+                                            <a href="<?= base_url('Home/traceIK')?>" class="btn btn-facebook btn-user btn-block">
+                                                <i class="fas fa-search"></i> Tracking Data Izin Kerja
+                                            </a>
                                         </form>
                                         <hr>
                                         <!-- <div class="text-center">

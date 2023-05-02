@@ -132,7 +132,7 @@
                                 </td>
                                 <td style="color: black;"><?= $data->validasi?></td>
                                 <td style="color: black;"><?php if($data->validasi == ''){?>
-                                    <a href="<?php echo base_url('Dashboard/prosesvalidasiData/'.$data->id_subcont);?>" class="btn btn-warning">
+                                    <a href="<?php echo base_url('Dashboard/prosesvalidasiData/'.$data->id_subcont);?>" class="btn btn-warning" title="Tombol ini digunakan untuk validasi data">
                                         <span></span>Validasi
                                     </a>
                                     <?php }else{?>
@@ -141,7 +141,7 @@
                                 <?php }?>
                                 <!-- <td style="color: black;"><a href="<?php echo base_url('Dashboard/proseskonfirmGambar/'.$data->id_subcont);?>" class="btn btn-secondary">Konfirm  Gambar</lass=></a></td> -->
                                 <td style="color: black;"><?php if($data->status == 'draft'){?>
-                                    <a href="<?php echo base_url('Dashboard/proseskonfirmGambar/'.$data->id_subcont);?>" class="btn btn-info">
+                                    <a href="<?php echo base_url('Dashboard/proseskonfirmGambar/'.$data->id_subcont);?>" class="btn btn-info" title="Tombol ini digunakan untuk confirm gambar">
                                         <span></span>Konfirm  Gambar
                                     </a>
                                     <?php }else{?>

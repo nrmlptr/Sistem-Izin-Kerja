@@ -17,7 +17,36 @@
 			$this->load->view('template/footer');
 		}
 
-		// ============================================================================================================================================================
+		//===========================================================================================================================================
+		//buat metode untuk menampilkan data grafik izin kerja per bulan saat ini
+		public function grafikData(){
+			$this->load->view('template/header');
+
+			$data['tanggal'] = $this->M_subcont->getdataTanggal(); //data get tanggal saja untuk grafik
+			$data['grafik'] = $this->M_subcont->getdataGrafik(); //data tampilan pada grafik
+			// echo json_encode($data);
+			$data['tabel'] = $this->M_subcont->getforTabel(); // data tampilan pada tabel
+			
+
+			// var_dump($data['grafik'] );die;
+			$this->load->view('dashboard/v_grafikdata', $data);
+			$this->load->view('template/footer');
+		}
+
+		//buat metode untuk tampilkan grafik history data izin kerja tiap bulannya
+		public function detailGrafik($bulan) {
+			$this->load->view('template/header');
+			$data['judul'] = 'Detail Grafik Izin Kerja';
+			$data['bulan'] = $bulan;
+			$data['detailGrafik'] = $this->M_subcont->getDetailGrafik($bulan);
+
+			// var_dump($data['detailGrafik']);die;
+			
+			$this->load->view('dashboard/v_detailGrafik', $data);
+			$this->load->view('template/footer');
+		}		
+
+		// ==========================================================================================================================================
 		//buat metode yng digunakan untuk membuka form validasi data ketika button di tekan
 		public function prosesvalidasiData(){
 			// -> tes apakah button berfungsi 
@@ -68,7 +97,7 @@
 			// ===========================================================================================
 		}
 
-		// ============================================================================================================================================================
+		// ==========================================================================================================================================
 		//buat fungsi yang akan digunakan untuk menampilkan dashboard untuk orang ke2
 		public function konfirm_gambar(){
 			$this->load->model('M_subcont');
@@ -160,7 +189,7 @@
 			}
 		}
 
-		// ============================================================================================================================================================
+		// ==========================================================================================================================================
 
 		//buat fungsi yang akan digunakan untuk manggil view yg menampilkan data untuk orang ke 3 (EHS)
 		public function konfirm_form(){
@@ -208,7 +237,7 @@
 			$this->M_subcont->proses_setujuiform($data);
 		}
 
-		//================================================================================================================================
+		//===========================================================================================================================================
 		//buat fungsi metode untuk lihat detail data iks beserta jsa
 		public function cekDetail(){
 			$this->load->view('template/header');
@@ -247,7 +276,7 @@
 			$this->dompdf->stream("Detail_Data_Subcont.pdf");
 		}
 
-		//================================================================================================================================
+		//===========================================================================================================================================
 		//buat fungsi metode untuk halaman akses security
 		//berfungsi hanya untuk melihat data guna mencocokan data di sistem dengan data cetak yang dimiliki subcont
 		public function konfirm_subcont(){
@@ -275,7 +304,7 @@
 			$this->load->view('template/footer');
 		}
 
-		//================================================================================================================================
+		//============================================================================================================================================
 		//buat metode untuk hapus data iks dengan id
 		public function hapusDataById(){
 			$id = $this->uri->segment(3);
@@ -283,8 +312,7 @@
 			$this->M_subcont->hapusDataById($id);
 		}
 
-
-		//=================================================================================================================================
+		//============================================================================================================================================
 		//buat metod yg digunakan untuk menampilkan form ceklis sudah melakukan briefing oleh Dept EHS
 		public function prosesBriefing(){
 			// -> tes apakah button berfungsi // echo "Ini tempat proses setujui";
@@ -312,5 +340,57 @@
 			$this->M_subcont->proses_briefingform($data);
 		}
 
+		//=========================================== metode untuk data subcont aktif saja ===========================================================
+		//buat fungsi yang akan digunakan untuk menampilkan dashboard untuk orang ke2
+		public function dataAktif(){
+			$this->load->model('M_subcont');
+			$data['subcontAktif'] = $this->M_subcont->getdataAktif();
+			// var_dump($data['subcontAktif']);die;
+
+			$this->load->view('template/header');
+			$this->load->view('dashboard/v_dataAktifEHS', $data);
+			$this->load->view('template/footer');
+		}
+
+		//============================================================================================================================================
+		//buat metode untuk tampilkan detail data izin kerja pada tabel 
+		public function detailTabel(){
+
+			$id_bulan = $this->uri->segment(3);
+			$this->load->model('M_subcont');
+			// $data['dataTabeldetail'] = $this->M_subcont->get();
+			$data['detailtabel'] = $this->M_subcont->getfordetailTabel($id_bulan);
+
+			// var_dump($data['detailtabel']);die;
+
+			$this->load->view('template/header');
+			$this->load->view('dashboard/v_detailtabel', $data);
+			$this->load->view('template/footer');
+		}
+
+		// buat metode untuk mencetak data detail izin kerja dengan format pdf 
+		public function printdataDetail(){
+			$this->load->library('dompdf_gen');
+
+			// $id_subcont = $this->uri->segment(3);
+			$this->load->model("M_subcont");
+			$data['printData']=$this->M_subcont->getfordetailTabel();
+			// var_dump($data['printData']);die;
+
+
+			$this->load->view('pdf/v_printdetailData', $data);
+
+			$paper_size = 'A4';
+			$orientation = 'potrait';
+
+			//get output html
+			$html = $this->output->get_output();
+			$this->dompdf->set_paper($paper_size, $orientation);
+
+			///convert to pdf
+			$this->dompdf->load_html($html);
+			$this->dompdf->render();
+			$this->dompdf->stream("Rincian_Total_Data_Izin_Kerja.pdf");
+		}
 	}
 ?>

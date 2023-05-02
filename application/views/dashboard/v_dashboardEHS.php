@@ -3,6 +3,28 @@
 // $list_gambar = 'asd';
 // var_dump($list_gambar);die();
 ?>
+<style>
+  .blinking-red-badge {
+    animation: blink 0.5s infinite;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 0.5em;
+  }
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+   100% {
+    opacity: 1;
+  }
+}
+
+</style>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -12,8 +34,9 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-dark">Data Izin Kerja Subcont PT CBI --
-      <a href="<?php echo base_url('excel/index')?>"><button class='btn btn-secondary'>Cetak Data</button></a>
+    <h6 class="m-0 font-weight-bold text-dark">Data Izin Kerja Subcont PT CBI || 
+      <a href="<?= base_url('excel/index');?>" class="btn btn-success" title="Tombol ini digunakan untuk cetak report data">Cetak Data <i class="fa fa-print"></i></a>
+      <!-- <a href="<?php echo base_url('excel/index')?>"><button class='btn btn-secondary' title="Tombol ini digunakan untuk cetak report data">Cetak Data</button><i class="fa-solid fa-print"></i></a> -->
     </h6>                 
   </div>
   <div class="card-body">
@@ -46,7 +69,7 @@
               <th scope="col" rowspan="2" style="color: black;">Gambar</th>
               <th scope="col" rowspan="2" style="color: black;">Status</th>
               <th scope="col" rowspan="2" style="color: black;">Activity User</th>
-              <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th>
+              <!-- <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th> -->
               <th scope="col" rowspan="2" style="color: black;">Action</th>
             </tr>
             <tr align="center">
@@ -59,6 +82,7 @@
         <tbody align="center">
           <?php 
             $loop= 1;
+            $currentDate = date('Y-m-d'); // dapetin tanggal hari ini 
             // var_dump($list_subcont[31]->gambar);die;
             foreach($list_subcont as $data){
                 $arrKategoriPekerjaan = explode(", ", $data->kategori_pekerjaan);
@@ -71,7 +95,14 @@
               ?>
             <tr>
               <td style="color: black;"><?= $loop++ ?></td>
-              <td style="color: black;"><?= $data->no_regis;?></td>
+              <td style="color: black;">
+              <?php if ($data->wkt_selesai <= $currentDate) {
+                // Jika tanggal selesai lebih kecil dari atau sama dengan tanggal hari ini,
+                echo '<span class="blinking-red-badge">' .$data->no_regis . '</span>';
+              } else {
+                // Jika tanggal selesai masih lebih besar dari tanggal hari ini,
+                echo $data->no_regis;
+              }?></td>
               <td style="color: black;"><?= $data->nama_perusahaan;?></td>
               <td style="color: black;"><?= $data->alamat_perusahaan;?></td>
               <td style="color: black;"><?= date('d-m-Y', strtotime($data->wkt_mulai)) ?></td>
@@ -141,32 +172,27 @@
                   }?>
                 <?php } ?> 
               </td>
-              <td style="color: black;"><?php if($data->status == 'checked'){?>
-                    <a href="<?php echo base_url('Dashboard/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-warning">
-                        <span></span>Confirm
-                    </a>
-                  <?php }elseif($data->status =='approved'){ ?>
-                    <span style="color: red;">Sudah Disetujui</span>
-                      <?php if($show_btn_briefing) { ?>
-                        <a href="<?php echo base_url('Dashboard/prosesBriefing/'.$data->id_subcont);?>" class="btn btn-info mt-3">
-                          <span></span>Confirm Safety Induction
-                        </a>
-                      <?php }elseif($data->kategori_pekerjaan == 'umum'){ ?>
-                        <span style="color: green;">Tidak Perlu Safety Induction</span>
-                      <?php }else{ ?>
-                        <span style="color: blue;">Sudah Melakukan Safety Induction</span>
-                      <?php } ?>
-                  <?php }?>
-              </td>
-                
-                
+              <!-- <td style="color: black;"><?php if($data->status == 'checked'){?>
+                <a href="<?php echo base_url('Dashboard/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-warning" title="Tombol ini digunakan untuk confirm Izin Kerja">
+                    <span></span>Confirm
+                </a>
+                <?php }elseif($data->status =='approved'){ ?>
+                  <span style="color: red;">Sudah Disetujui</span>
+                    <?php if($show_btn_briefing) { ?>
+                      <a href="<?php echo base_url('Dashboard/prosesBriefing/'.$data->id_subcont);?>" class="btn btn-info mt-3" title="Tombol ini digunakan untuk confirm SI">
+                        <span></span>Confirm Safety Induction
+                      </a>
+                    <?php }elseif($data->kategori_pekerjaan == 'umum'){ ?>
+                      <span style="color: green;">Tidak Perlu Safety Induction</span>
+                    <?php }else{ ?>
+                      <span style="color: blue;">Sudah Melakukan Safety Induction</span>
+                    <?php } ?>
+                <?php }?>
+              </td> -->   
               <td style="color: black;" align="center">
-                <a href="<?php echo base_url('Dashboard/cekDetail/'.$data->id_subcont);?>" class="btn btn-info"><i class="far fa-eye"></i></a>
-                <!-- <a href="<?php echo base_url('Dashboard/perbaruiData/'.$data->id_subcont);?>" class="btn btn-warning"><i class="far fa-edit"></i></a> -->
-                <!-- <a href="<?php echo base_url('Dashboard/hapusDataById/'.$data->id_subcont);?>" class="btn btn-danger btn-hapus"><i class="fas fa-trash"></i></a> -->
-                <a href="<?php echo base_url('Dashboard/hapusDataById/'.$data->id_subcont);?>" class="btn btn-danger mt-3" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data?')"><i class="fas fa-trash"></i></a>
+                <a href="<?php echo base_url('Dashboard/cekDetail/'.$data->id_subcont);?>" class="btn btn-info" title="Tombol ini digunakan untuk melihat detail data"><i class="far fa-eye"></i></a>
+                <a href="<?php echo base_url('Dashboard/hapusDataById/'.$data->id_subcont);?>" class="btn btn-danger mt-3" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data?')" title="Tombol ini digunakan untuk menghapus data"><i class="fas fa-trash"></i></a>
               </td>
-              <!-- <td style="color: black;"><a href="<?php echo base_url('home/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-primary">Setujui</lass=></a></td> -->
             </tr>
           <?php } ?>
         </tbody>

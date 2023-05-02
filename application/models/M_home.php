@@ -39,7 +39,15 @@ class M_home extends CI_Model{
 
 
     //==================================================================================================
-
+    public function ambil_data($keyword=null){
+		// $this->db->select('*');
+        $this->db->distinct();
+		$this->db->from('iks');
+		if(!empty($keyword)){
+			$this->db->like('no_regis',$keyword);
+		}
+		return $this->db->get()->result_array();
+	}
 }
 
 ?>
