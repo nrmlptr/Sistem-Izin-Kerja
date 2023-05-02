@@ -8,7 +8,7 @@
     <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script> <!-- Load file jquery -->
 </head>
 <body style="padding: 0 20px;">
-  <h2>Data Izin Kerja Subcont - PT CBI</h2><hr>
+  <h2>Data Izin Kerja Subcont - PT Century Batteries Indonesia</h2><hr>
     <form method="get" action="">
         <div class="row">
       <div class="col-sm-3 col-md-2">
