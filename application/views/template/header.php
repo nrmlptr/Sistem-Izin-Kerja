@@ -50,11 +50,12 @@
             <!-- <hr class="sidebar-divider my-0"> -->
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="<?= base_url('Dashboard/grafikData')?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                    <span>Dashboard</span>
+                </a>
+            </li> -->
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->
@@ -82,6 +83,12 @@
             </li>
             <?php }elseif($this->session->userdata('akses') == 2) { ?>
             <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="<?= base_url('Dashboard/grafikData')?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -103,7 +110,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Master</span>
+                    <span>Master Data</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
