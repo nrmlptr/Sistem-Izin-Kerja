@@ -3,11 +3,12 @@
   <title>Export Excel Subcont</title>
     <!-- <script src="<?php echo base_url('assets/sbadmin/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" /> <!--Include file bootstrap.min.css-->
+    <link href="<?php echo base_url('assets/sbadmin/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/libraries/bootstrap-datepicker/css/bootstrap-datepicker.min.css'); ?>" rel="stylesheet"> <!-- Include file bootstrap-datepicker.min.css -->
     <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script> <!-- Load file jquery -->
 </head>
 <body style="padding: 0 20px;">
-  <h2>Data izin Kerja Subcont - PT CBI</h2><hr>
+  <h2>Data Izin Kerja Subcont - PT CBI</h2><hr>
     <form method="get" action="">
         <div class="row">
       <div class="col-sm-3 col-md-2">
@@ -65,13 +66,13 @@
         </div>
       </div>
     </div>
-        <button type="submit" class="btn btn-primary">Tampilkan</button>
+        <button type="submit" class="btn btn-primary">SHOW <i class="fa fa-eye"></i></button>
         <a href="index" class="btn btn-default">Reset Filter</a>
-        <a href="<?= base_url('dashboard/konfirm_form');?>" class="btn btn-info">Kembali</a>
+        <a href="<?= base_url('dashboard/konfirm_form');?>" class="btn btn-info">BACK <i class="fa fa-home"></i></a>
     </form>
     <hr />
     <b><?php echo $label; ?></b><br /><br />
-    <a href="<?php echo $url_export; ?>" class="btn btn-success btn-xs">EXPORT EXCEL</a><br /><br />
+    <a href="<?php echo $url_export; ?>" class="btn btn-success btn-xs">EXPORT DATA   <i class="fa fa-print"></i></a><br /><br />
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>

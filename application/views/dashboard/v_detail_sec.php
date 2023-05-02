@@ -3,8 +3,8 @@
         <!-- Basic Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-dark"><b>Data Izin Kerja Subcont -- </b>
-                    <a href="<?= base_url('dashboard/konfirm_subcont');?>" class="btn btn-secondary">Kembali</a>
+                <h5 class="m-0 font-weight-bold text-dark"><b>Data Izin Kerja Subcont || </b>
+                    <a href="<?= base_url('dashboard/konfirm_subcont');?>" class="btn btn-secondary">Back <i class="fa fa-home"></i></a>
                 </h5>
             </div>
             <div class="card-body">
@@ -18,7 +18,7 @@
                                 <p style="color: black;">Tanggal Mulai Bekerja                : <?= $sbc[0]->wkt_mulai;?> </p>
                                 <p style="color: black;">Tanggal Selesai Bekerja              : <?= $sbc[0]->wkt_selesai;?></p>
                                 <p style="color: black;">Lokasi Pekerjaan                     : <?= $sbc[0]->lokasi_pekerjaan;?></p>
-                                <p style="color: black;">Direktur Koordinat Subcont           : <?= $sbc[0]->direktur_koordinat;?> </p>
+                                <p style="color: black;">Nama Direktur/Koordinator Subcont    : <?= $sbc[0]->direktur_koordinat;?> </p>
                                 <p style="color: black;">Nama PIC Subcont                     : <?= $sbc[0]->pic_subcont;?></p>
                                 <p style="color: black;">No HP Subcont                        : <?= $sbc[0]->nohp_subcont;?></p>
                                 <p style="color: black;">Jumlah Pekerja Subcont               : <?= $sbc[0]->jml_picsubcont;?> </p>

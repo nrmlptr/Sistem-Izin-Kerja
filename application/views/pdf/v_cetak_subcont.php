@@ -1,5 +1,4 @@
 <html><head>
-
 <style>
     p{
         margin: 5px 0 0 0;
@@ -100,14 +99,14 @@
 <p>
     Detail Data Subcont :
 </p>
-<p?>
+<p>
     <table style="border: 1px solid black;border-collapse: collapse;font-size: 11px" width="100%">
         <tr style="margin: 5px">
             <td class="bold" style="border: 1px solid black;">Lokasi Pekerjaan </td>
             <td style="border: 1px solid black;"><?php echo $sbc[0]->lokasi_pekerjaan?> </td>
         </tr>
         <tr style="margin: 5px">
-            <td class="bold" style="border: 1px solid black;">Direktur/Koordinat Subcont </td>
+            <td class="bold" style="border: 1px solid black;">Nama Direktur/Koordinator Subcont </td>
             <td style="border: 1px solid black;"><?php echo $sbc[0]->direktur_koordinat?> </td>
         </tr>
         <tr style="margin: 5px">

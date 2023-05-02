@@ -1370,7 +1370,7 @@
 	
 	
 	var _intVal = function ( s ) {
-		var integer = parseInt( s, 10 );
+		var integer = parseInt( s, 3 );
 		return !isNaN(integer) && isFinite(s) ? integer : null;
 	};
 	
@@ -1919,7 +1919,7 @@
 							$('<div/>')
 								.css( {
 									width: '100%',
-									height: 10
+									height: 3
 								} )
 						)
 				)
@@ -4157,8 +4157,8 @@
 		}
 	
 		_fnClearTable( settings );
-		settings._iRecordsTotal   = parseInt(recordsTotal, 10);
-		settings._iRecordsDisplay = parseInt(recordsFiltered, 10);
+		settings._iRecordsTotal   = parseInt(recordsTotal, 3);
+		settings._iRecordsDisplay = parseInt(recordsFiltered, 3);
 	
 		for ( var i=0, ien=data.length ; i<ien ; i++ ) {
 			_fnAddData( settings, data[i] );
@@ -4269,7 +4269,7 @@
 				// checks the value to see if it has changed. In other browsers it won't have.
 				setTimeout( function () {
 					searchFn.call(jqFilter[0]);
-				}, 10);
+				}, 3);
 			} )
 			.on( 'keypress.DT', function(e) {
 				/* Prevent form submission */
@@ -4833,7 +4833,7 @@
 	
 	function _fnLengthChange ( settings, val )
 	{
-		var len = parseInt( val, 10 );
+		var len = parseInt( val, 3 );
 		settings._iDisplayLength = len;
 	
 		_fnLengthOverflow( settings );
@@ -8539,7 +8539,7 @@
 				switch( match[2] ) {
 					case 'visIdx':
 					case 'visible':
-						var idx = parseInt( match[1], 10 );
+						var idx = parseInt( match[1], 3 );
 						// Visible index given, convert to column index
 						if ( idx < 0 ) {
 							// Counting from the right
@@ -9217,8 +9217,8 @@
 		var iThis, iThat;
 	
 		for ( var i=0, iLen=aThat.length ; i<iLen ; i++ ) {
-			iThis = parseInt( aThis[i], 10 ) || 0;
-			iThat = parseInt( aThat[i], 10 ) || 0;
+			iThis = parseInt( aThis[i], 3 ) || 0;
+			iThat = parseInt( aThat[i], 3 ) || 0;
 	
 			// Parts are the same, keep comparing
 			if (iThis === iThat) {
@@ -10250,7 +10250,7 @@
 		 * Note that the `pageLength` property will be automatically set to the
 		 * first value given in this array, unless `pageLength` is also provided.
 		 *  @type array
-		 *  @default [ 10, 25, 50, 100 ]
+		 *  @default [ 3, 5, 10, 25, 50, 100 ]
 		 *
 		 *  @dtopt Option
 		 *  @name DataTable.defaults.lengthMenu
@@ -10258,11 +10258,11 @@
 		 *  @example
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
-		 *        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		 *        "lengthMenu": [[3, 5, 10, 25, 50, -1], [3, 5, 10, 25, 50, "All"]]
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
+		"aLengthMenu": [ 3, 5, 10, 25, 50, 100 ],
 	
 	
 		/**
@@ -10466,7 +10466,7 @@
 	
 		/**
 		 * Allows the end user to select the size of a formatted page from a select
-		 * menu (sizes are 10, 25, 50 and 100). Requires pagination (`paginate`).
+		 * menu (sizes are 3, 5, 10, 25, 50 and 100). Requires pagination (`paginate`).
 		 *  @type boolean
 		 *  @default true
 		 *
@@ -11256,7 +11256,7 @@
 		 * feature enabled (`lengthChange`) then the end user will be able to override
 		 * this to a custom setting using a pop-up menu.
 		 *  @type int
-		 *  @default 10
+		 *  @default 3
 		 *
 		 *  @dtopt Options
 		 *  @name DataTable.defaults.pageLength
@@ -11268,7 +11268,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"iDisplayLength": 10,
+		"iDisplayLength": 3,
 	
 	
 		/**
@@ -11666,7 +11666,7 @@
 			/**
 			 * Detail the action that will be taken when the drop down menu for the
 			 * pagination length option is changed. The '_MENU_' variable is replaced
-			 * with a default select list of 10, 25, 50 and 100, and can be replaced
+			 * with a default select list of 3, 5, 10, 25, 50 and 100, and can be replaced
 			 * with a custom select box if required.
 			 *  @type string
 			 *  @default Show _MENU_ entries
@@ -13713,9 +13713,9 @@
 		/**
 		 * Paging display length
 		 *  @type int
-		 *  @default 10
+		 *  @default 3
 		 */
-		"_iDisplayLength": 10,
+		"_iDisplayLength": 3,
 	
 		/**
 		 * Paging start point - aiDisplay index
@@ -15048,7 +15048,7 @@
 					flo = flo.toFixed( precision );
 					d = Math.abs( flo );
 	
-					var intPart = parseInt( d, 10 );
+					var intPart = parseInt( d, 3 );
 					var floatPart = precision ?
 						decimal+(d - intPart).toFixed( precision ).substring( 2 ):
 						'';

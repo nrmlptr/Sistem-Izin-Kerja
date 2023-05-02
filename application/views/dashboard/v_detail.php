@@ -3,7 +3,7 @@
         <!-- Basic Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-dark"><b>Data Izin Kerja Subcont -- </b>
+                <h5 class="m-0 font-weight-bold text-dark"><b>Data Izin Kerja Subcont | </b>
                     <?php if($sbc[0]->status == 'approved'):?>
                         <a href="<?php echo base_url('dashboard/cetak_detail/'.$sbc[0]->id_subcont)?>">
                             <button class='btn btn-secondary'>Cetak Data</button>
@@ -24,8 +24,7 @@
                                 <p style="color: black;">Tanggal Mulai Bekerja                : <?= $sbc[0]->wkt_mulai;?> </p>
                                 <p style="color: black;">Tanggal Selesai Bekerja              : <?= $sbc[0]->wkt_selesai;?></p>
                                 <p style="color: black;">Lokasi Pekerjaan                     : <?= $sbc[0]->lokasi_pekerjaan;?></p>
-                                <p style="color: black;">Direktur Koordinat Subcont           : <?= $sbc[0]->direktur_koordinat;?> </p>
-                                <p style="color: black;">Nama PIC Subcont                     : <?= $sbc[0]->pic_subcont;?></p>
+                                <p style="color: black;">Nama Direktur/Koordinator Subcont    : <?= $sbc[0]->direktur_koordinat;?> </p>                                <p style="color: black;">Nama PIC Subcont                     : <?= $sbc[0]->pic_subcont;?></p>
                                 <p style="color: black;">No HP Subcont                        : <?= $sbc[0]->nohp_subcont;?></p>
                                 <p style="color: black;">Jumlah Pekerja Subcont               : <?= $sbc[0]->jml_picsubcont;?> </p>
                                 <p style="color: black;">Nama Pekerja Subcont                 : <?= $sbc[0]->namamp_subcont;?></p>
@@ -38,8 +37,18 @@
                                 <p style="color: black;">Jenis Pekerjaan                      : <?= $sbc[0]->jenis_pekerjaan;?></p>
                                 <p style="color: black;">Kategori Pekerjaan                   : <?= $sbc[0]->kategori_pekerjaan;?></p>
                                 <p style="color: black;">Syarat Wajib                         : <?= $sbc[0]->syarat_wajib;?></p>
-                                <!-- <p style="color: black;">Validasi Data                        : <?= $sbc[0]->validasi;?></p> -->
-                                <p style="color:royalblue;"><b>Status   : <?= $sbc[0]->status;?></b><br></p>
+                                <!-- <p style="color: black;">Validasi Data                   : <?= $sbc[0]->validasi;?></p> -->
+                                <!-- <p style="color:royalblue;"><b>Status                    : <?= $sbc[0]->status;?></b><br></p> -->
+                                <p style="color: black;"><b>Status                            : <?php if($sbc[0]->status == 'approved'){?>
+                                                                                                    <span class="badge badge-success"><?= $sbc[0]->status;?></span>
+                                                                                                <?php }elseif($sbc[0]->status == 'rejected'){?>
+                                                                                                    <span class="badge badge-danger"><?= $sbc[0]->status;?></span>
+                                                                                                <?php }elseif($sbc[0]->status == 'checked'){?>
+                                                                                                    <span class="badge badge-info"><?= $sbc[0]->status;?></span>
+                                                                                                <?php }elseif($sbc[0]->status == 'draft'){?>
+                                                                                                    <span class="badge badge-warning"><?= $sbc[0]->status;?></span>
+                                                                                                <?php }?></b><br>
+                                </p>
                                 <p style="color: black;">Activity User : 
                                     <?php 
                                 
