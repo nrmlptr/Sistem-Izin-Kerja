@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>FORM IKS - PT CBI</title>
+        <title>FORM Izin Kerja Subcont - PT CBI</title>
         <style>
             body{ 
             margin-top:40px; 
@@ -609,8 +609,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-warning btn-lg pull-left"><a href="<?= base_url('Login/index');?>" style="color: white;">Cancel</a></button>
-                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                            <button class="btn btn-warning btn-lg pull-left"><a href="<?= base_url('Login/index');?>" style="color: white;"> Cancel <i class="far fa-window-close"></i></a></button>
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" > Next <i class="fa fa-forward"></i></button>
                         </div>
                     </div>
                 </div>
@@ -1285,7 +1285,7 @@
                             <div id="button_validasi_jsa">
 
                             </div>
-                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" onclick="validasi_rows()">Next</button>
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" onclick="validasi_rows()">Next <i class="fa fa-forward"></i></button>
                         </div>
                     </div>
                 </div>
@@ -1293,7 +1293,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <h3 style="color: black;"> Step 3 : Finish</h3>
-                            <button class="btn btn-success btn-lg pull-right" type="submit" onclick="return confirm('Apakah Yakin Akan Mengirimkan Data?')">Simpan!</button>
+                            <button class="btn btn-success btn-lg pull-right" type="submit" onclick="return confirm('Apakah Yakin Akan Mengirimkan Data?')"> Simpan! <i class="fas fa-save"></i></button>
                         </div>
                     </div>
                 </div>

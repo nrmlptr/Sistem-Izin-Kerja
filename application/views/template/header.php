@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IKS System - Dashboard</title>
+    <title>IK System - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('assets/sbadmin/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img src="<?php echo base_url('assets/images/');?>k3logo.ico" alt class="w-px-40 h-auto rounded-circle" />
                 </div>
-                <div class="sidebar-brand-text mx-3" style="color: black;">IKS SYSTEM<sup></sup></div>
+                <div class="sidebar-brand-text mx-3" style="color: black;">IK SYSTEM<sup></sup></div>
             </a>
 
             <!-- Divider -->

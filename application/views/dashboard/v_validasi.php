@@ -28,7 +28,7 @@
         <div class="row">
             <div class="card my-5" style="width: 600rem;">
                 <div class="card-header">
-                    <h3 class="card-title" style="color: black;">FORM VALIDASI IKS</h3>
+                    <h3 class="card-title" style="color: black;">FORM VALIDASI Izin Kerja System</h3>
                 </div>
                 <form action="<?php echo base_url('Dashboard/proses_simpan_validasi');?>" method="POST">
                     <input type="hidden" name="id_subcont" value="<?php echo $sbc[0]->id_subcont?>">

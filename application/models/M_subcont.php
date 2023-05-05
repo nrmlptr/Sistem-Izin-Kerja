@@ -10,6 +10,7 @@
             return $query->result();  
         }
 
+        //metode untuk ambil data izin kerja yang aktif per hari ini saja pada role ehs
         public function getdataAktif(){
             $current_date = date("Y-m-d"); //buat ambil tanggal saat ini nantinya di bandingin sama tanggal di data
 
@@ -21,6 +22,7 @@
             return $query->result();  
         }
 
+        //metode untuk tracking pengguna yang akses izin kerja baik untuk pic project atau ehs
         public function getLogIKS($subcont_id){
             $this->db->select('log_time, log_user, log_tipe, log_desc');
             $this->db->from('tabel_log');
@@ -183,7 +185,7 @@
         //     return $data;
         // }
 
-        //data tampil semua bulan
+        //data tampil per 1 bulan sesuai dengan bulan saat ini
         function getdataGrafik(){
             $bulan_ini = date('Y-m'); // mendapatkan bulan saat ini dalam format YYYY-MM
             $this->db->select("tanggal_pengajuan, 
@@ -215,6 +217,8 @@
             return $data;
         }   
 
+
+        //tampil grafik per bulan sesuai dg bulan yg di klik (untuk melihat history bulan sblmnya pd tabel detail)
         function getDetailGrafik($bulan)
         {
             $this->db->select("tanggal_pengajuan, 
@@ -246,6 +250,7 @@
         }
 
 
+        // model untuk detail tabel izin kerja yang disetujui dan tidak
         function getforTabel(){
             $this->db->select('MONTH(tanggal_pengajuan) AS bulan, 
                 SUM(CASE WHEN status = "approved" THEN 1 ELSE 0 END) AS jumlah_approved, 
@@ -271,6 +276,7 @@
 
         }
 
+        // model untuk detail izin kerja perbulan ada berapa based on kategori pekerjaan
         function getfordetailTabel(){
             $this->db->select("MONTH(tanggal_pengajuan) as bulan,
                 SUM(CASE WHEN kategori_pekerjaan = 'umum' THEN 1 ELSE 0 END) as umum,

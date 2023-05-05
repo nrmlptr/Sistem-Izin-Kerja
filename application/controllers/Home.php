@@ -129,7 +129,7 @@
 			// var_dump($data);die;
 
 			$this->load->view('template/headers');
-			$this->load->view('dashboard/v_trace', $data);
+			$this->load->view('home/v_trace', $data);
 			$this->load->view('template/footer');
 			// $this->load->view('search',$data);
 		}

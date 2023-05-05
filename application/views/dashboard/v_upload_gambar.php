@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="card card-primary col-xl-8">
         <div class="card-header">
-            <h3 style="color: black;">Konfirmasi Gambar</h3>
+            <h3 style="color: black;">Konfirmasi Gambar Izin Kerja</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->

@@ -69,7 +69,7 @@
               <th scope="col" rowspan="2" style="color: black;">Gambar</th>
               <th scope="col" rowspan="2" style="color: black;">Status</th>
               <th scope="col" rowspan="2" style="color: black;">Activity User</th>
-              <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th>
+              <!-- <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th> -->
               <th scope="col" rowspan="2" style="color: black;">Action</th>
             </tr>
             <tr align="center">
@@ -95,20 +95,18 @@
               ?>
             <tr>
               <td style="color: black;"><?= $loop++ ?></td>
-              <td style="color: black;"><?= $data->no_regis;?></td>
+              <td style="color: black;">
+              <?php if ($data->wkt_selesai <= $currentDate) {
+                // Jika tanggal selesai lebih kecil dari atau sama dengan tanggal hari ini,
+                echo '<span class="blinking-red-badge">' .$data->no_regis . '</span>';
+              } else {
+                // Jika tanggal selesai masih lebih besar dari tanggal hari ini,
+                echo $data->no_regis;
+              }?></td>
               <td style="color: black;"><?= $data->nama_perusahaan;?></td>
               <td style="color: black;"><?= $data->alamat_perusahaan;?></td>
               <td style="color: black;"><?= date('d-m-Y', strtotime($data->wkt_mulai)) ?></td>
-              <td style="color: black;">
-              <?php if ($data->wkt_selesai <= $currentDate) {
-                  // Jika tanggal selesai lebih kecil dari atau sama dengan tanggal hari ini,
-                  // tambahkan kelas CSS pada elemen HTML yang sesuai untuk menampilkan badge atau span berkedip merah
-                  echo '<span class="blinking-red-badge">' . $data->wkt_selesai . '</span>';
-                } else {
-                  // Jika tanggal selesai masih lebih besar dari tanggal hari ini,
-                  // tampilkan data secara normal tanpa kelas CSS tambahan
-                  echo $data->wkt_selesai;
-                }?></td>
+              <td style="color: black;"><?= date('d-m-Y', strtotime($data->wkt_selesai)) ?></td>
               <td style="color: black;"><?= $data->lokasi_pekerjaan;?></td>
               <td style="color: black;"><?= $data->direktur_koordinat;?></td>
               <td style="color: black;"><?= $data->pic_subcont;?></td>
@@ -174,7 +172,7 @@
                   }?>
                 <?php } ?> 
               </td>
-              <td style="color: black;"><?php if($data->status == 'checked'){?>
+              <!-- <td style="color: black;"><?php if($data->status == 'checked'){?>
                 <a href="<?php echo base_url('Dashboard/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-warning" title="Tombol ini digunakan untuk confirm Izin Kerja">
                     <span></span>Confirm
                 </a>
@@ -192,10 +190,10 @@
                 <?php }?>
               </td>
                 
-                
+                 -->
               <td style="color: black;" align="center">
                 <a href="<?php echo base_url('Dashboard/cekDetail/'.$data->id_subcont);?>" class="btn btn-info" title="Tombol ini digunakan untuk melihat detail data"><i class="far fa-eye"></i></a>
-                <a href="<?php echo base_url('Dashboard/hapusDataById/'.$data->id_subcont);?>" class="btn btn-danger mt-3" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data?')" title="Tombol ini digunakan untuk menghapus data"><i class="fas fa-trash"></i></a>
+                <!-- <a href="<?php echo base_url('Dashboard/hapusDataById/'.$data->id_subcont);?>" class="btn btn-danger mt-3" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data?')" title="Tombol ini digunakan untuk menghapus data"><i class="fas fa-trash"></i></a> -->
               </td>
             </tr>
           <?php } ?>

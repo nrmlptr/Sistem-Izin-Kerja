@@ -43,7 +43,7 @@
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img src="<?php echo base_url('assets/images/');?>k3logo.ico" alt class="w-px-40 h-auto rounded-circle" />
                 </div>
-                <div class="sidebar-brand-text mx-3" style="color: black;">IKS SYSTEM<sup></sup></div>
+                <div class="sidebar-brand-text mx-3" style="color: black;">IK SYSTEM<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -60,9 +60,9 @@
             <!-- <hr class="sidebar-divider"> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading" style="color: black;">
+            <!-- <div class="sidebar-heading" style="color: black;">
                 Data Izin Kerja Subcont
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <?php if($this->session->userdata('akses') == 1){ ?>
@@ -70,7 +70,7 @@
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span style="color: black;">Data Master</span>
+                    <span style="color: black;">Master Data</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -86,7 +86,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Master</span>
+                    <span>Master Data</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
@@ -103,7 +103,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Master</span>
+                    <span>Master Data</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">

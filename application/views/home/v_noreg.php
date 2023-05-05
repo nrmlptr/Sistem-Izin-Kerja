@@ -54,7 +54,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">IZIN KERJA SUBCONT BERHASIL DIKIRIM!</h6>
                                 </div>
                             </div>
-                            <a href="<?= base_url('Login/index');?>" class="btn btn-info">Kembali</a>
+                            <a href="<?= base_url('Login/index');?>" class="btn btn-info">Kembali <i class="fa fa-home"></i></a>
                         </div>
 
                         

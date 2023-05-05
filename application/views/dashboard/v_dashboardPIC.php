@@ -6,7 +6,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">Data Izin Kerja Subcont - PT CBI</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Data Izin Kerja Subcont - PT Century Batteries Indonesia</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

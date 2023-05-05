@@ -69,7 +69,7 @@
               <th scope="col" rowspan="2" style="color: black;">Gambar</th>
               <th scope="col" rowspan="2" style="color: black;">Status</th>
               <th scope="col" rowspan="2" style="color: black;">Activity User</th>
-              <!-- <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th> -->
+              <th scope="col" rowspan="2" style="color: black;">Konfirmasi TIM EHS</th>
               <th scope="col" rowspan="2" style="color: black;">Action</th>
             </tr>
             <tr align="center">
@@ -172,7 +172,7 @@
                   }?>
                 <?php } ?> 
               </td>
-              <!-- <td style="color: black;"><?php if($data->status == 'checked'){?>
+              <td style="color: black;"><?php if($data->status == 'checked'){?>
                 <a href="<?php echo base_url('Dashboard/prosesSetujui/'.$data->id_subcont);?>" class="btn btn-warning" title="Tombol ini digunakan untuk confirm Izin Kerja">
                     <span></span>Confirm
                 </a>
@@ -188,7 +188,7 @@
                       <span style="color: blue;">Sudah Melakukan Safety Induction</span>
                     <?php } ?>
                 <?php }?>
-              </td> -->   
+              </td>   
               <td style="color: black;" align="center">
                 <a href="<?php echo base_url('Dashboard/cekDetail/'.$data->id_subcont);?>" class="btn btn-info" title="Tombol ini digunakan untuk melihat detail data"><i class="far fa-eye"></i></a>
                 <a href="<?php echo base_url('Dashboard/hapusDataById/'.$data->id_subcont);?>" class="btn btn-danger mt-3" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data?')" title="Tombol ini digunakan untuk menghapus data"><i class="fas fa-trash"></i></a>
