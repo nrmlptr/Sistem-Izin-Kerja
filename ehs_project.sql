@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Bulan Mei 2023 pada 11.25
+-- Waktu pembuatan: 08 Bulan Mei 2023 pada 04.16
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -64,7 +64,8 @@ INSERT INTO `gambar` (`id`, `subcont_id`, `judul`) VALUES
 (24, 46, '16831827414803087631017462128190.jpg'),
 (25, 44, '16832531931161997132244880071529.jpg'),
 (26, 45, 'WhatsApp_Image_2023-05-05_at_09_21_23.jpeg'),
-(27, 47, 'IMG-20230504-WA0066.jpg');
+(27, 47, 'IMG-20230504-WA0066.jpg'),
+(28, 48, 'ciler.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,8 @@ INSERT INTO `iks` (`id_subcont`, `no_regis`, `tanggal_pengajuan`, `nama_perusaha
 (44, '305230001', '2023-05-03', 'PT NFU', 'Kawasan Industri Manis. Jl Manis II No.1. Kadu, kec Curug, Kab Tangerang Banten', '2023-05-07', '2023-05-07', 'Gedung E - Lead Powder Pasting', 'Agus', 'Seno A', '81904766806', '6', 'Seno A, M Rusli, Aep, A Muis, Suadi, Fahrulrozi', 'Ibu Nonik', 'Ibu Nonik', '85728466966', 'sepatu safety, masker, sarung tangan karet,helm', 'Mask/Respirator and Safety Shoes', 'Helmet, Sarung Tangan', 'umum', 'umum', NULL, 'pengerukan lumpur timah cbi, kolam penampung pasta scrap, , , ', 'TERPAPAR UAP, TERKENA PERCIKAN CAIRAN KIMIA', 'LUKA PADA JARI / TANGAN, LUKA PADA MATA, GANGGUAN PERNAFASAN', 'memakai sepatu safety,masker,sarung tangan,dan memakai helm, , , ', 'Tidak Ada Syarat Wajib', '', 'approved'),
 (45, '405230001', '2023-05-04', 'PT.SINAR SUKSES MEGATAMA', 'Perum Mutiara Nirwana Blok C1 No.8, Kondang Jaya\nKarawang Timur 41371- Jawa Barat Indonesia', '2023-05-06', '2023-05-21', 'Gedung G - Assembling', 'Nurul Anwar', 'Mudayatna', '85719056027', '2', 'Karmawan, Suherlan', 'Hendi setiawan', 'Engineering', '82317063336', 'Mesin Gurinda Tangan, Mesin Bor Tangan, Kabel Power', 'Mask/Respirator and Safety Shoes', 'Helmet, Safety Glass, Full Body Harness, Sarung Tangan', 'Relayout Conveyor', 'libatkan panas', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL', 'Persiapan APD, Persiapan Lokasi, Persiapan Pekerja, ', 'TERKENA PERCIKAN LAS, JATUH DARI KETINGGIAN, TERSENGAT LISTRIK, JATUH DARI KETINGGIAN, TERSENGAT LISTRIK, TERJEPIT, TERGELINCIR, GETARAN MEKANIS ALAT', 'LUKA PADA TUBUH, KEMATIAN / FATALITY, PATAH TULANG, KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN', 'APD Lengkap, Safety Induction, APD Lengkap, ', 'Wajib tersedia APAR, Wajib proteksi area kerja, Bebas Area bahan mudah terbakar, Lindungi dengan TERPAL, Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', '', 'checked'),
 (46, '405230002', '2023-05-04', 'PT Spektris Metalab ', 'Jl tanah Abang I No 12 D \nJakarta pusat ', '2023-05-04', '2023-05-05', 'Area Office', 'Puji ', 'Asep Darmawan ', '8159038908', '1', 'Asep Darmawan ', 'Ibu Wiwin ', 'Quality ', '85642352835', 'Tools box ', 'Mask/Respirator and Safety Shoes', 'Helmet', 'Maintenance Spectrometer ', 'umum', 'Kategori Umum : Tidak Ada Syarat Wajib', 'Maintenance Spectrometer , , , ', 'LIMBAH B3 DAN NON B3, LIMBAH B3 DAN NON B3, LIMBAH B3 DAN NON B3, LIMBAH B3 DAN NON B3', 'PENCEMARAN LINGKUNGAN, PENCEMARAN LINGKUNGAN, PENCEMARAN LINGKUNGAN, PENCEMARAN LINGKUNGAN', 'Bersihkan area kerja setelah selesai bekerja, , , ', 'Tidak Ada Syarat Wajib', '', 'approved'),
-(47, '505230001', '2023-05-05', 'PT. Kito Indonesia', 'Kawasan Industri Delta Silicon 5 Jl. Kenari Raya Plot G2 - 10A Cikarang Pusat , Kabupaten Bekasi - Jawa Barat', '2023-05-05', '2023-05-05', 'Gedung C - Formation, Gedung F - Formation', 'Lulita Putrinda', 'Moh. Lawijaya', '81234548690', '3', 'Deri Tadarus, Tauvik Hidayat, Moh. Lawijaya', 'Krisna', 'Maintenance', '6,2813E+12', 'Tool Box, Safety Body Harnest', 'Mask/Respirator and Safety Shoes', 'Helmet, Full Body Harness, Sarung Tangan', 'Pengecekan Load Chain', 'libatkan ketinggian', 'Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', '- Menyiapkan Alat Ketinggian, - Pengecekan Load Chain, - Pemotongan Load Chain, ', 'JATUH DARI KETINGGIAN, TERJEPIT, JATUH DARI KETINGGIAN, TERJEPIT, JATUH DARI KETINGGIAN, TERSENGAT LISTRIK, TERJEPIT, TERKENA PERCIKAN LAS', 'KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, LUKA PADA MATA', 'Gunakan APD, Gunakan APD, Gunakan APD, ', 'Min 2 Pekerja, cek body harness dan helm', '', 'approved');
+(47, '505230001', '2023-05-05', 'PT. Kito Indonesia', 'Kawasan Industri Delta Silicon 5 Jl. Kenari Raya Plot G2 - 10A Cikarang Pusat , Kabupaten Bekasi - Jawa Barat', '2023-05-05', '2023-05-05', 'Gedung C - Formation, Gedung F - Formation', 'Lulita Putrinda', 'Moh. Lawijaya', '81234548690', '3', 'Deri Tadarus, Tauvik Hidayat, Moh. Lawijaya', 'Krisna', 'Maintenance', '6,2813E+12', 'Tool Box, Safety Body Harnest', 'Mask/Respirator and Safety Shoes', 'Helmet, Full Body Harness, Sarung Tangan', 'Pengecekan Load Chain', 'libatkan ketinggian', 'Min 2 Pekerja, cek scaffolding/tangga, cek body harness dan helm', '- Menyiapkan Alat Ketinggian, - Pengecekan Load Chain, - Pemotongan Load Chain, ', 'JATUH DARI KETINGGIAN, TERJEPIT, JATUH DARI KETINGGIAN, TERJEPIT, JATUH DARI KETINGGIAN, TERSENGAT LISTRIK, TERJEPIT, TERKENA PERCIKAN LAS', 'KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, KEMATIAN / FATALITY, PATAH TULANG, LUKA PADA TUBUH, LUKA PADA JARI / TANGAN, LUKA PADA MATA', 'Gunakan APD, Gunakan APD, Gunakan APD, ', 'Min 2 Pekerja, cek body harness dan helm', '', 'approved'),
+(48, '0605230001', '2023-05-08', 'PT gemilang reksabuana', 'Ruko ptm 3 no 35 cilengsi bogor', '2023-05-06', '2023-06-06', 'Gedung G - Assembling', 'Rosihan Anwar', 'Gagan', '082297810902', '2', 'Serpis ciller, Gagan', 'Pak Afril', 'MAINTENANCE', '085727753122', 'Tools analiser pakum kabel power', 'Mask/Respirator and Safety Shoes', 'Helmet, Sarung Tangan', 'Service Ciler', 'umum', 'Kategori Umum : Tidak Ada Syarat Wajib', 'Cek kontrol Ganti filter isi peron, Cek kontrol Pasang pilter isi preon, Cek kontrol ganti pilter Isi preon, Cek kontrol ganti pilter isi preon', 'TERSENGAT LISTRIK, TERSENGAT LISTRIK, TERSENGAT LISTRIK, TERSENGAT LISTRIK', 'KEMATIAN / FATALITY, KEMATIAN / FATALITY, KEMATIAN / FATALITY, KEMATIAN / FATALITY', 'Pastikan saluran listrik ke Adan mati, Pastikan saluran listrik ke Adan mati, Pastikan saluran listrik ke Adan mati, Pastikan saluran listrik mati', 'Tidak Ada Syarat Wajib', '', 'approved');
 
 -- --------------------------------------------------------
 
@@ -326,7 +328,9 @@ INSERT INTO `tabel_log` (`log_id`, `subcont_id`, `log_time`, `log_user`, `log_ti
 (47, 45, '0000-00-00 00:00:00', 'bpu3651', 2, 'PIC Project by '),
 (48, 47, '0000-00-00 00:00:00', 'KBA3477', 2, 'PIC Project by '),
 (49, 47, '0000-00-00 00:00:00', 'AZAE1617', 3, '|| PIC EHS by '),
-(50, 44, '0000-00-00 00:00:00', 'NSC2819', 3, '|| PIC EHS by ');
+(50, 44, '0000-00-00 00:00:00', 'NSC2819', 3, '|| PIC EHS by '),
+(51, 48, '2023-05-08 02:14:55', 'ACN2523', 2, 'PIC Project by '),
+(52, 48, '2023-05-08 02:15:34', 'AZAE1617', 3, '|| PIC EHS by ');
 
 -- --------------------------------------------------------
 
@@ -477,13 +481,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `gambar`
 --
 ALTER TABLE `gambar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `iks`
 --
 ALTER TABLE `iks`
-  MODIFY `id_subcont` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_subcont` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `karyawan`
@@ -495,7 +499,7 @@ ALTER TABLE `karyawan`
 -- AUTO_INCREMENT untuk tabel `tabel_log`
 --
 ALTER TABLE `tabel_log`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
